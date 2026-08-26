@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 830" width="1240" height="830">
+  <defs>
+    <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#000000"/>
+    </marker>
+  </defs>
+
+  <!-- outer frame -->
+  <rect x="40" y="40" width="1160" height="750" rx="10" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+
+  <!-- legend top right -->
+  <text x="1160" y="67" text-anchor="end" font-family="FangSong,'STFangsong','FangSong_GB2312','SimSun',serif" font-size="15" font-weight="bold" fill="#444444">编号圆＝验收闸：不过即挂起，等你放行</text>
+  <circle cx="868" cy="61" r="10" fill="#2456A6"/>
+  <text x="868" y="66" text-anchor="middle" font-size="12" fill="#ffffff">①</text>
+
+  <!-- top band: input, O, gate1, S, gate2, output -->
+  <rect x="118" y="100" width="130" height="92" rx="10" fill="#ffffff" stroke="#000000" stroke-width="1.6"/>
+  <text x="183" y="140" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="20" fill="#111111">你的需求</text>
+  <text x="183" y="168" text-anchor="middle" font-family="FangSong,'STFangsong','FangSong_GB2312','SimSun',serif" font-size="15" font-weight="bold" fill="#555555">一句话＋场景</text>
+
+  <line x1="250" y1="146" x2="278" y2="146" stroke="#000000" stroke-width="1.6" marker-end="url(#arw)"/>
+
+  <rect x="282" y="100" width="240" height="92" rx="10" fill="#ffffff" stroke="#000000" stroke-width="1.6"/>
+  <text x="402" y="133" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="21" fill="#2456A6">O · 定向</text>
+  <text x="402" y="160" text-anchor="middle" font-family="FangSong,'STFangsong','FangSong_GB2312','SimSun',serif" font-size="16" font-weight="bold" fill="#333333">O1 场景识别 ≤2 问</text>
+  <text x="402" y="184" text-anchor="middle" font-family="FangSong,'STFangsong','FangSong_GB2312','SimSun',serif" font-size="16" font-weight="bold" fill="#333333">O2 十变量契约，你拍板</text>
+
+  <line x1="524" y1="146" x2="586" y2="146" stroke="#000000" stroke-width="1.6"/>
+  <circle cx="555" cy="146" r="13" fill="#2456A6"/>
+  <text x="555" y="151" text-anchor="middle" font-size="14" fill="#ffffff">①</text>
+
+  <rect x="588" y="100" width="250" height="92" rx="10" fill="#ffffff" stroke="#000000" stroke-width="1.6"/>
+  <text x="713" y="133" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="21" fill="#2456A6">S · 运思</text>
+  <text x="713" y="160" text-anchor="middle" font-family="FangSong,'STFangsong','FangSong_GB2312','SimSun',serif" font-size="16" font-weight="bold" fill="#333333">元层 → 六环 → 验证</text>
+  <text x="713" y="184" text-anchor="middle" font-family="FangSong,'STFangsong','FangSong_GB2312','SimSun',serif" font-size="16" font-weight="bold" fill="#333333">想透「论证往哪走」</text>
+
+  <line x1="840" y1="146" x2="890" y2="146" stroke="#000000" stroke-width="1.6" marker-end="url(#arw)"/>
+  <circle cx="865" cy="146" r="13" fill="#2456A6"/>
+  <text x="865" y="151" text-anchor="middle" font-size="14" fill="#ffffff">②</text>
+
+  <rect x="892" y="100" width="230" height="92" rx="10" fill="#ffffff" stroke="#000000" stroke-width="1.6"/>
+  <text x="1007" y="133" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="21" fill="#111111">双产出</text>
+  <text x="1007" y="160" text-anchor="middle" font-family="FangSong,'STFangsong','FangSong_GB2312','SimSun',serif" font-size="16" font-weight="bold" fill="#333333">论证锚定卡 ＋ 结果稿</text>
+  <text x="1007" y="184" text-anchor="middle" font-family="FangSong,'STFangsong','FangSong_GB2312','SimSun',serif" font-size="15" font-weight="bold" fill="#333333">写什么、怎么想，先立字据</text>
+
+  <!-- C layer container -->
+  <rect x="80" y="248" width="1080" height="330" rx="10" fill="#ffffff" stroke="#000000" stroke-width="1.6"/>
+  <text x="104" y="285" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="22" fill="#2456A6">C · 建构</text>
+  <text x="232" y="284" font-family="FangSong,'STFangsong','FangSong_GB2312','SimSun',serif" font-size="17" font-weight="bold" fill="#444444">十一道工序，线性推进，不可跳步</text>
+
+  <!-- connectors row 1 (drawn first, gates painted on top) -->
+  <line x1="258" y1="344" x2="294" y2="344" stroke="#000000" stroke-width="1.5" marker-end="url(#arw)"/>
+  <line x1="430" y1="344" x2="466" y2="344" stroke="#000000" stroke-width="1.5" marker-end="url(#arw)"/>
+  <line x1="602" y1="344" x2="638" y2="344" stroke="#000000" stroke-width="1.5" marker-end="url(#arw)"/>
+  <line x1="774" y1="344" x2="810" y2="344" stroke="#000000" stroke-width="1.5" marker-end="url(#arw)"/>
+  <line x1="946" y1="344" x2="982" y2="344" stroke="#000000" stroke-width="1.5" marker-end="url(#arw)"/>
+  <line x1="1050" y1="382" x2="1050" y2="446" stroke="#000000" stroke-width="1.5" marker-end="url(#arw)"/>
+  <!-- connectors row 2 (right to left) -->
+  <line x1="982" y1="486" x2="948" y2="486" stroke="#000000" stroke-width="1.5" marker-end="url(#arw)"/>
+  <line x1="810" y1="486" x2="776" y2="486" stroke="#000000" stroke-width="1.5" marker-end="url(#arw)"/>
+  <line x1="638" y1="486" x2="604" y2="486" stroke="#000000" stroke-width="1.5" marker-end="url(#arw)"/>
+  <line x1="466" y1="486" x2="432" y2="486" stroke="#000000" stroke-width="1.5" marker-end="url(#arw)"/>
+  <!-- exit path C11 to delivery -->
+  <path d="M 294 486 L 200 486 L 200 618" fill="none" stroke="#000000" stroke-width="1.6" marker-end="url(#arw)"/>
+
+  <!-- row 1: C1..C6 -->
+  <rect x="124" y="308" width="132" height="72" rx="8" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="190" y="334" text-anchor="middle" font-family="'Times New Roman',Arial,sans-serif" font-size="15" fill="#2456A6">C1</text>
+  <text x="190" y="362" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="18" fill="#111111">定题</text>
+
+  <rect x="296" y="308" width="132" height="72" rx="8" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="362" y="334" text-anchor="middle" font-family="'Times New Roman',Arial,sans-serif" font-size="15" fill="#2456A6">C2</text>
+  <text x="362" y="362" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="18" fill="#111111">备料</text>
+
+  <rect x="468" y="308" width="132" height="72" rx="8" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="534" y="334" text-anchor="middle" font-family="'Times New Roman',Arial,sans-serif" font-size="15" fill="#2456A6">C3</text>
+  <text x="534" y="362" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="18" fill="#111111">综述·引言</text>
+
+  <rect x="640" y="308" width="132" height="72" rx="8" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="706" y="334" text-anchor="middle" font-family="'Times New Roman',Arial,sans-serif" font-size="15" fill="#2456A6">C4</text>
+  <text x="706" y="362" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="18" fill="#111111">大纲协商</text>
+
+  <rect x="812" y="308" width="132" height="72" rx="8" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="878" y="334" text-anchor="middle" font-family="'Times New Roman',Arial,sans-serif" font-size="15" fill="#2456A6">C5</text>
+  <text x="878" y="362" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="18" fill="#111111">血脉填充</text>
+
+  <rect x="984" y="308" width="132" height="72" rx="8" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="1050" y="334" text-anchor="middle" font-family="'Times New Roman',Arial,sans-serif" font-size="15" fill="#2456A6">C6</text>
+  <text x="1050" y="362" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="18" fill="#111111">正式撰写</text>
+
+  <!-- row 2: C7..C11 (flow right to left) -->
+  <rect x="984" y="450" width="132" height="72" rx="8" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="1050" y="476" text-anchor="middle" font-family="'Times New Roman',Arial,sans-serif" font-size="15" fill="#2456A6">C7</text>
+  <text x="1050" y="504" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="18" fill="#111111">净化</text>
+
+  <rect x="812" y="450" width="132" height="72" rx="8" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="878" y="476" text-anchor="middle" font-family="'Times New Roman',Arial,sans-serif" font-size="15" fill="#2456A6">C8</text>
+  <text x="878" y="504" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="18" fill="#111111">格式·合卷</text>
+
+  <rect x="640" y="450" width="132" height="72" rx="8" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="706" y="476" text-anchor="middle" font-family="'Times New Roman',Arial,sans-serif" font-size="15" fill="#2456A6">C9</text>
+  <text x="706" y="504" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="18" fill="#111111">联合评审</text>
+
+  <rect x="468" y="450" width="132" height="72" rx="8" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="534" y="476" text-anchor="middle" font-family="'Times New Roman',Arial,sans-serif" font-size="15" fill="#2456A6">C10</text>
+  <text x="534" y="504" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="18" fill="#111111">返修</text>
+
+  <rect x="296" y="450" width="132" height="72" rx="8" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="362" y="476" text-anchor="middle" font-family="'Times New Roman',Arial,sans-serif" font-size="15" fill="#2456A6">C11</text>
+  <text x="362" y="504" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="18" fill="#111111">精校封存</text>
+
+  <!-- gate circles (painted above lines) -->
+  <circle cx="276" cy="344" r="13" fill="#2456A6"/>
+  <text x="276" y="349" text-anchor="middle" font-size="14" fill="#ffffff">③</text>
+  <circle cx="448" cy="344" r="13" fill="#2456A6"/>
+  <text x="448" y="349" text-anchor="middle" font-size="14" fill="#ffffff">④</text>
+  <circle cx="620" cy="344" r="13" fill="#2456A6"/>
+  <text x="620" y="349" text-anchor="middle" font-size="14" fill="#ffffff">⑤</text>
+  <circle cx="792" cy="344" r="13" fill="#2456A6"/>
+  <text x="792" y="349" text-anchor="middle" font-size="14" fill="#ffffff">⑥</text>
+  <circle cx="964" cy="344" r="13" fill="#2456A6"/>
+  <text x="964" y="349" text-anchor="middle" font-size="14" fill="#ffffff">⑦</text>
+  <circle cx="1050" cy="414" r="13" fill="#2456A6"/>
+  <text x="1050" y="419" text-anchor="middle" font-size="14" fill="#ffffff">⑧</text>
+  <circle cx="965" cy="486" r="13" fill="#2456A6"/>
+  <text x="965" y="491" text-anchor="middle" font-size="14" fill="#ffffff">⑨</text>
+  <circle cx="793" cy="486" r="13" fill="#2456A6"/>
+  <text x="793" y="491" text-anchor="middle" font-size="14" fill="#ffffff">⑩</text>
+  <circle cx="621" cy="486" r="13" fill="#2456A6"/>
+  <text x="621" y="491" text-anchor="middle" font-size="14" fill="#ffffff">⑪</text>
+  <circle cx="449" cy="486" r="13" fill="#2456A6"/>
+  <text x="449" y="491" text-anchor="middle" font-size="14" fill="#ffffff">⑫</text>
+  <circle cx="200" cy="550" r="13" fill="#2456A6"/>
+  <text x="200" y="555" text-anchor="middle" font-size="14" fill="#ffffff">⑬</text>
+
+  <!-- bottom band: delivery and E -->
+  <rect x="110" y="622" width="180" height="56" rx="28" fill="#f4f6fa" stroke="#000000" stroke-width="1.6"/>
+  <text x="200" y="657" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="20" fill="#111111">合卷交付</text>
+
+  <rect x="430" y="616" width="520" height="96" rx="10" fill="#ffffff" stroke="#000000" stroke-width="1.6"/>
+  <text x="690" y="650" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="21" fill="#2456A6">E · 沉淀（经验回写）</text>
+  <text x="690" y="676" text-anchor="middle" font-family="FangSong,'STFangsong','FangSong_GB2312','SimSun',serif" font-size="16" font-weight="bold" fill="#333333">复盘本篇：置信 ≥3 的真反馈才回写规则库</text>
+  <text x="690" y="700" text-anchor="middle" font-family="FangSong,'STFangsong','FangSong_GB2312','SimSun',serif" font-size="15" font-weight="bold" fill="#555555">期刊退修这类反馈算硬分，自我感觉不算——下次开工自动带上</text>
+
+  <!-- footer support line -->
+  <text x="620" y="758" text-anchor="middle" font-family="FangSong,'STFangsong','FangSong_GB2312','SimSun',serif" font-size="16" font-weight="bold" fill="#444444">全程支撑：M 方法库（怎么写的菜谱） · K 知识库（按需检索，不预存） · T 工具箱（作图／查证／排版）</text>
+</svg>
