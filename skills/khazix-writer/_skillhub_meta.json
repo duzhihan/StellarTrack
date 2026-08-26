@@ -1,0 +1,12 @@
+{
+  "name": "卡兹克公众号写作",
+  "slug": "khazix-writer",
+  "version": "1.0.0",
+  "installedAt": 1779409650291,
+  "source": "marketplace",
+  "iconSource": "khazix-writer",
+  "preinstalledTemplate": true,
+  "skillId": "skill_2053082248175816704",
+  "description_zh": "卡兹克风格的公众号长文写作，真诚有温度的AI内容创作",
+  "description_en": "WeChat long-form writing in Khazix's authentic, personal voice"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "wechat-article-search",
+  "slug": "wechat-article-search",
+  "version": "0.1.0",
+  "installedAt": 1779409650130,
+  "source": "marketplace",
+  "iconSource": "wechat-article-search",
+  "preinstalledTemplate": true,
+  "skillId": "skill_2053083784548929536",
+  "description_zh": "搜索微信公众号文章（标题、摘要、发布时间、来源账号、链接）",
+  "description_en": "Search WeChat public account articles by keyword"
+}

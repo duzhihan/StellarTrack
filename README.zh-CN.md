@@ -58,22 +58,26 @@
 ## 目录结构
 
 ```
-skills/
+skills/                  # 共 65 件，六档位全引擎
 ├── paper-factory/        # 星躔本体：SKILL.md＋六档工作流＋references 全套
 ├── thinking-protocols/   # 谛听 · 认知引擎：苏格拉底管道＋模式卡库＋S 层七卡
-├── abstract-checker      # C11 摘要↔正文一致性对照器
-├── claim-audit           # 承重主张回源核验
-├── manuscript-review     # 交稿前自审
-├── journal-fit           # 目标期刊要求对标
-├── reference-check       # 参考文献逐笔查核
-├── research-design       # 研究方法设计
-├── theoretical-framework # 理论框架建构
-├── title-assessor        # 标题评估
-├── cnki-deepsearch       # 知网检索底座（需自备账号）
-├── gongwen-draft         # 规范公文写作
-├── nssfc-*（6件）        # 国家社科基金申报全管线
-└── …                     # 其余见 NOTICE.md 来源清单
+├── 学术线                # abstract-checker / claim-audit / journal-fit / manuscript-review /
+│                         # reference-check / research-design / theoretical-framework /
+│                         # title-assessor / literature-review-writer / paper-mechanigraph-4ss /
+│                         # cnki-deepsearch / citation-format / good-story
+├── 修改评审线            # duzhihan-paper-editor / evidence-bound-revision /
+│                         # nsfc-review-guide / academic-paper-reviewer / human-review
+├── 申报线                # nssfc-*（6件）/ gongwen-draft
+└── 传播线                # narrative-suite＋narrative-*（雕龙26件）/ oh-story / wenfeng-slime /
+                          # khazix-writer / ljg-writes / human-writing / wechat-article-search /
+                          # douyin-copy-extract / ljg-card / ljg-present / lieflat-charts
 ```
+
+## 安装
+
+1. 将 `skills/` 下全部目录复制到你所用 Agent 平台的技能目录（如 WorkBuddy：`~/.workbuddy/skills/`）
+2. 两个 Node 工具需装依赖：在 `skills/human-review/` 与 `skills/ljg-card/` 内执行 `npm install`
+3. 重载技能列表即可使用——触发词见各 SKILL.md，或直接说「用星躔写论文」
 
 ## 环境绑定件说明（不在仓库、也无法打包）
 
