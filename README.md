@@ -38,6 +38,7 @@ Three standing rules:
 ```
 skills/
 ├── paper-factory/        # Core: SKILL.md + six register workflows + references
+├── thinking-protocols/   # DiTing cognitive engine: Socratic pipeline + mode cards + S-layer seven cards
 ├── abstract-checker      # Abstract ↔ body consistency auditor (C11)
 ├── claim-audit           # Claim-to-source verification
 ├── manuscript-review     # Pre-submission self-review

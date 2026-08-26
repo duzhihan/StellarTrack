@@ -47,6 +47,8 @@
 | **C 认知建构** | C1–C11 工序流水线 | 产物带号流转＋守门分级＋三层装载（骨架不变层／动词翻译半变层／注册表全变层） |
 | **E 经验共创** | 让系统越用越准 | 校准台账＋置信加权回写 |
 
+配套理论文档见 [docs/THEORY.md](docs/THEORY.md)（谛听六环认知引擎的设计原理）；运行时数据模板见 `data/_templates/`。
+
 三条设计铁律贯穿全程：
 
 1. **AI 可参与思考，不能替你理解**——关键拍板点必停，确认必回显。
@@ -58,6 +60,7 @@
 ```
 skills/
 ├── paper-factory/        # 星躔本体：SKILL.md＋六档工作流＋references 全套
+├── thinking-protocols/   # 谛听 · 认知引擎：苏格拉底管道＋模式卡库＋S 层七卡
 ├── abstract-checker      # C11 摘要↔正文一致性对照器
 ├── claim-audit           # 承重主张回源核验
 ├── manuscript-review     # 交稿前自审
