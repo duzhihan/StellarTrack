@@ -1,10 +1,10 @@
 # 星躔 · StellarTrack — 跨场景学术写作系统
 
-![License](https://img.shields.io/badge/License-MIT-yellow.svg) ![Version](https://img.shields.io/badge/version-v12.3-blue) ![Agent Skill](https://img.shields.io/badge/Agent%20Skill-O--S--C--E-green)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg) ![Version](https://img.shields.io/badge/version-v12.5.21-blue) ![Agent Skill](https://img.shields.io/badge/Agent%20Skill-O--S--C--E-green)
 
 <div align="center">
 
-<img src="assets/readme/hero.svg" alt="星躔 StellarTrack" width="100%"/>
+<img src="https://raw.githubusercontent.com/duzhihan/StellarTrack/main/assets/readme/hero.svg" alt="星躔 StellarTrack" width="100%"/>
 
 **一条带闸门的写作流水线：AI 出力，你放行。**
 
@@ -20,9 +20,9 @@ O 定向 → S 运思 → C 建构（C1–C11） → E 沉淀 ｜ [快速开始]
 
 凌晨一点，你对着屏幕上第三版开头发呆。
 
-选题是好的，文献读了不少，脑子里也有话想说。可真到了下笔，问题全冒出来了：综述像读书笔记，理论框架撑不起后面的论证，写出来的句子一股"AI 味"，摘要吹的正文接不住……
+选题是好的，文献读了不少，脑子里也有话想说。可真到了下笔，问题全冒出来了：综述像读书笔记，理论框架撑不起后面的论证，写出来的句子一股“AI 味”，摘要吹的正文接不住……
 
-你把"帮我写篇论文"扔给大模型，它十秒钟给你一篇像模像样的东西。
+你把“帮我写篇论文”扔给大模型，它十秒钟给你一篇像模像样的东西。
 
 但你不敢投。因为你知道：**它没有走过你走过的思考过程，所以它的每一个结论你都替它心虚。**
 
@@ -33,7 +33,7 @@ O 定向 → S 运思 → C 建构（C1–C11） → E 沉淀 ｜ [快速开始]
 我写论文、标书、公众号长文时，反复撞上同一堵墙：
 
 - 写到一半发现立论没立住，推倒重来；
-- 让 AI 代笔，得到"谁都能写出来的平均文本"，撑不过审稿人第一眼；
+- 让 AI 代笔，得到“谁都能写出来的平均文本”，撑不过审稿人第一眼；
 - 这次改对的坑，下一篇照踩——对话一关，教训清零。
 
 市面上的工具只有两种：帮你润色的，和替你全自动生成的。**前者不管过程，后者抢走思考。**我要第三种：把我的写作流程拆成十一道工序，每道设一道闸门——AI 把检索、初稿、排版这些苦力活干完，但每个关键决定都停下来等我签字。
@@ -50,9 +50,9 @@ O 定向 → S 运思 → C 建构（C1–C11） → E 沉淀 ｜ [快速开始]
 
 ## 你缺的不是文字，是工序
 
-论文写作不是"一次生成"，是**一条流水线**：选题要测杀、材料要备齐、结构要先立、成稿要打磨、引用要对表、评审要过门。常规做法为什么都差一步：
+论文写作不是“一次生成”，是**一条流水线**：选题要测杀、材料要备齐、结构要先立、成稿要打磨、引用要对表、评审要过门。常规做法为什么都差一步：
 
-- **直接让大模型写**：跳过全部工序。产出的是"文章的形状"，不是"论证的结构"。
+- **直接让大模型写**：跳过全部工序。产出的是“文章的形状”，不是“论证的结构”。
 - **堆一堆提示词**：每个环节都有招，但环节之间不衔接——选题卡和初稿之间隔着一条断头路。
 - **模板化写作框架**：给了骨架，但骨架不会随着文体变（期刊论文、会议稿、申报书、公文各是各的规矩）。
 
@@ -88,11 +88,11 @@ O 定向 → S 运思 → C 建构（C1–C11） → E 沉淀 ｜ [快速开始]
 ▌环节卡▌ 材料建档完成 ｜ 验收通过 ｜ 下一步：综述
 ```
 
-信息给足了它不废话；该问的最多问两轮，每问都附推荐答案；猜的地方明说"我假设了 X"，随时推翻。
+信息给足了它不废话；该问的最多问两轮，每问都附推荐答案；猜的地方明说“我假设了 X”，随时推翻。
 
 ## 它是怎么工作的
 
-![C1–C11 认知建构流水线](assets/readme/workflow.svg)
+![C1–C11 认知建构流水线](https://raw.githubusercontent.com/duzhihan/StellarTrack/main/assets/readme/workflow.svg)
 
 四段架构，各司其职：
 
@@ -107,7 +107,7 @@ O 定向 → S 运思 → C 建构（C1–C11） → E 沉淀 ｜ [快速开始]
 
 机制总图——闸门怎么卡、产物怎么流转：
 
-<img src="assets/readme/mechanism.svg" alt="机制总图" width="100%"/>
+<img src="https://raw.githubusercontent.com/duzhihan/StellarTrack/main/assets/readme/mechanism.svg" alt="机制总图" width="100%"/>
 
 三条设计铁律贯穿全程：
 
@@ -121,7 +121,7 @@ O 定向 → S 运思 → C 建构（C1–C11） → E 沉淀 ｜ [快速开始]
 
 | 卡点 | 它接手处 |
 |---|---|
-| 面对空白页敲不出第一句 | 先问清"要论证什么"，再动笔 |
+| 面对空白页敲不出第一句 | 先问清“要论证什么”，再动笔 |
 | 文献读了一摞，说不出别人缺什么 | 三轮检索＋缺口公式，逼成一句话 |
 | 初稿越读越不像自己写的 | 净化双道门逐项去 AI 味 |
 | 改到第五版分不清好坏 | 每版有编号有分数，比较回到事实 |
@@ -132,21 +132,21 @@ O 定向 → S 运思 → C 建构（C1–C11） → E 沉淀 ｜ [快速开始]
 
 ## 开放性：骨架开箱即用，引擎按需自配
 
-这套流水线分两层。**骨架层零依赖**——下载即可跑：O 到 E 的工序流转、十三道闸门、编号留痕全在 `skills/paper-factory/` 内，不依赖任何外部工具。
+这套流水线分两层。**骨架层零依赖**——下载即可跑：O 到 E 的工序流转、十三道闸门、编号留痕全在 `skills/xingchan/` 内，不依赖任何外部工具。
 
-**引擎层按需挂**。每道工序可以接一个专职 skill 干重活（检索、综述、去 AI 味、机制图、评审……本仓库已随附全部默认引擎，每道工序的对应关系见 `skills/paper-factory/references/C环节skill注册表.md`）：
+**引擎层按需挂**。每道工序可以接一个专职 skill 干重活（检索、综述、去 AI 味、机制图、评审……本仓库已随附全部默认引擎，每道工序的对应关系见 `skills/xingchan/references/C环节skill注册表.md`）：
 
 | 你想要 | 动作 |
 |---|---|
 | 先跑起来 | 装完全部 skill 即满配；缺引擎时也会自动走降级路径，骨架照样走完全程 |
 | 看缺什么 | `python check-engines.py` 一键体检，输出各工序引擎就绪/缺失报表 |
-| 补某道工序的引擎 | 查注册表对应行，安装该 skill 即生效；候选工具登记册见 `skills/paper-factory/references/T工具箱_待加载清单.md` |
+| 补某道工序的引擎 | 查注册表对应行，安装该 skill 即生效；候选工具登记册见 `skills/xingchan/references/T工具箱_待加载清单.md` |
 | 自带钥匙 | 知网账号、embedding key 等自备；凭据只进环境变量或交互输入，**绝不写入文件与产物** |
 
 **探索与扩展**：
 
-- 教它你的写作方法 → 往 `skills/paper-factory/references/methods/` 写方法卡（六字段制，现有卡片是现成样例）；
-- 换文体／加档位 → 七套档位工作流指令包都在 `skills/paper-factory/references/`（学术、规范、传播、申报、回溯、演讲、创作），照抄结构写新档即可；
+- 教它你的写作方法 → 往 `skills/xingchan/references/methods/` 写方法卡（六字段制，现有卡片是现成样例）；
+- 换文体／加档位 → 七套档位工作流指令包都在 `skills/xingchan/references/`（学术、规范、传播、申报、回溯、演讲、创作），照抄结构写新档即可；
 - 引擎不好用 → 在 `data/graft-log.md` 记一行缺口，同格命中两次自动触发候选搜寻（三步嫁接环：缺口→试挂→转正）；
 - 灵感废料 → `data/insight-inbox.md` 暂存箱，月检回流。
 
@@ -159,8 +159,9 @@ O 定向 → S 运思 → C 建构（C1–C11） → E 沉淀 ｜ [快速开始]
 ## 目录结构
 
 ```
-skills/                  # 共 65 件，六档位全引擎
-├── paper-factory/        # 星躔本体：SKILL.md＋六档工作流＋references 全套
+skills/                  # 共 66 件，六档位全引擎
+├── xingchan/        # 星躔本体：SKILL.md＋六档工作流＋references 全套
+├── gushi-namer/          # 古诗文起名（创作档·起名子类 T 层挂载，引用式包装）
 ├── thinking-protocols/   # 谛听 · 认知引擎：苏格拉底管道＋模式卡库＋S 层七卡
 ├── 学术线                # abstract-checker / claim-audit / journal-fit / manuscript-review /
 │                         # reference-check / research-design / theoretical-framework /
@@ -182,13 +183,13 @@ docs/THEORY.md           # 谛听六环认知引擎理论文档
 
 1. 将 `skills/` 下全部目录复制到你所用 Agent 平台的技能目录（如 WorkBuddy：`~/.workbuddy/skills/`）
 2. 两个 Node 工具需装依赖：在 `skills/human-review/` 与 `skills/ljg-card/` 内执行 `npm install`
-3. 重载技能列表即可使用——触发词见各 SKILL.md，或直接说「用星躔写论文」
+3. 重载技能列表即可使用——触发词见各 SKILL.md，或直接说“用星躔写论文”
 4. （可选）跑一遍 `python check-engines.py`，确认各工序引擎就绪
 
 <details>
-<summary><b>为什么叫"星躔"</b></summary>
+<summary><b>为什么叫“星躔”</b></summary>
 
-躔（chán），星辰运行的轨迹（《方言》："日运为躔"）。文章章法如星之轨迹，所以全系统的部件都用二十八宿命名，二十八宿 28/28 各有其职：井宿管定向，心宿管运思，角娄奎室管前四道工序……完整对照见 `skills/paper-factory/references/星宿命名册.md`。代码里喊编号，文档里唤星宿，出门称星躔。
+躔（chán），星辰运行的轨迹（《方言》：“日运为躔”）。文章章法如星之轨迹，所以全系统的部件都用二十八宿命名，二十八宿 28/28 各有其职：井宿管定向，心宿管运思，角娄奎室管前四道工序……完整对照见 `skills/xingchan/references/星宿命名册.md`。代码里喊编号，文档里唤星宿，出门称星躔。
 
 </details>
 
@@ -214,7 +215,7 @@ docs/THEORY.md           # 谛听六环认知引擎理论文档
 
 | 组件 | 说明 |
 |---|---|
-| C2 知网选题通道 | 协议全文在 `skills/paper-factory/references/学术档工作流.md`，需 Chrome 远程调试＋本人知网账号会话 |
+| C2 知网选题通道 | 协议全文在 `skills/xingchan/references/学术档工作流.md`，需 Chrome 远程调试＋本人知网账号会话 |
 | C6 排版 tencent-docx 线 | WorkBuddy 平台内置组件；其他平台用各自的 docx 导出方案替代 |
 | 公文字体 | `gongwen-draft/assets/fonts/` 因版权未随仓库分发，使用前自行安装仿宋_GB2312、方正小标宋等并放回该目录 |
 
@@ -222,8 +223,9 @@ docs/THEORY.md           # 谛听六环认知引擎理论文档
 
 ## 许可与来源
 
-见 [NOTICE.md](NOTICE.md)——各子组件分「自研／第三方待核」两档逐项列明，第三方件使用前请自查许可。
+见 [NOTICE.md](NOTICE.md)——各子组件分“自研／第三方待核”两档逐项列明，第三方件使用前请自查许可。
 
 ## License
 
 MIT © 2026 Ruojun（duzhihan）
+- 部分二进制资产（图片、Office 文档、PDF、字体）因平台文件类型限制未随包发布——完整清单与“为何不影响主流程”见 `MISSING-ASSETS.md`。
