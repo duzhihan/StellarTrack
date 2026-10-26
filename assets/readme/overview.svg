@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Noto Sans SC, Microsoft YaHei, sans-serif">
+<rect width="1200" height="560" fill="#ffffff"/>
+<text x="40" y="46" font-size="26" fill="#1a1a1a" font-weight="700" text-anchor="start" >星躔怎么把一篇论文拆开</text>
+<text x="40" y="74" font-size="15" fill="#6b7280" font-weight="400" text-anchor="start" >O 定向 → S 决策 → C 建构（C1–C11）→ E 沉淀｜每道工序都有守门，不通过不放行</text>
+<rect x="44" y="100" width="250" height="88" rx="10" fill="#f4f7fc" stroke="#e3e8ef" stroke-width="1"/>
+<rect x="44" y="100" width="6" height="88" rx="3" fill="#2f6feb"/>
+<text x="64" y="134" font-size="17" fill="#1a1a1a" font-weight="700" text-anchor="start" >O · 目标定向</text>
+<text x="64" y="160" font-size="13" fill="#6b7280" font-weight="400" text-anchor="start" >识别场景／出锚定卡</text>
+<rect x="44" y="210" width="250" height="88" rx="10" fill="#f4f7fc" stroke="#e3e8ef" stroke-width="1"/>
+<rect x="44" y="210" width="6" height="88" rx="3" fill="#2f6feb"/>
+<text x="64" y="244" font-size="17" fill="#1a1a1a" font-weight="700" text-anchor="start" >S · 思考决策</text>
+<text x="64" y="270" font-size="13" fill="#6b7280" font-weight="400" text-anchor="start" >判断句锚定／反例检验</text>
+<rect x="44" y="320" width="250" height="88" rx="10" fill="#f4f7fc" stroke="#e3e8ef" stroke-width="1"/>
+<rect x="44" y="320" width="6" height="88" rx="3" fill="#1a7f37"/>
+<text x="64" y="354" font-size="17" fill="#1a1a1a" font-weight="700" text-anchor="start" >C · 认知建构</text>
+<text x="64" y="380" font-size="13" fill="#6b7280" font-weight="400" text-anchor="start" >C1–C11 十一道工序</text>
+<rect x="44" y="430" width="250" height="88" rx="10" fill="#f4f7fc" stroke="#e3e8ef" stroke-width="1"/>
+<rect x="44" y="430" width="6" height="88" rx="3" fill="#b45309"/>
+<text x="64" y="464" font-size="17" fill="#1a1a1a" font-weight="700" text-anchor="start" >E · 经验共创</text>
+<text x="64" y="490" font-size="13" fill="#6b7280" font-weight="400" text-anchor="start" >3 问快检／回写规则库</text>
+<rect x="330" y="320" width="124" height="46" rx="10" fill="#ffffff" stroke="#e3e8ef" stroke-width="1"/>
+<text x="340" y="340" font-size="12" fill="#2f6feb" font-weight="700" text-anchor="start" >C1</text>
+<text x="340" y="358" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start" >选题</text>
+<rect x="468" y="320" width="124" height="46" rx="10" fill="#ffffff" stroke="#e3e8ef" stroke-width="1"/>
+<text x="478" y="340" font-size="12" fill="#2f6feb" font-weight="700" text-anchor="start" >C2</text>
+<text x="478" y="358" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start" >材料</text>
+<rect x="606" y="320" width="124" height="46" rx="10" fill="#ffffff" stroke="#e3e8ef" stroke-width="1"/>
+<text x="616" y="340" font-size="12" fill="#2f6feb" font-weight="700" text-anchor="start" >C3</text>
+<text x="616" y="358" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start" >综述</text>
+<rect x="744" y="320" width="124" height="46" rx="10" fill="#ffffff" stroke="#e3e8ef" stroke-width="1"/>
+<text x="754" y="340" font-size="12" fill="#2f6feb" font-weight="700" text-anchor="start" >C4</text>
+<text x="754" y="358" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start" >大纲</text>
+<rect x="882" y="320" width="124" height="46" rx="10" fill="#ffffff" stroke="#e3e8ef" stroke-width="1"/>
+<text x="892" y="340" font-size="12" fill="#2f6feb" font-weight="700" text-anchor="start" >C5</text>
+<text x="892" y="358" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start" >填充</text>
+<rect x="1020" y="320" width="124" height="46" rx="10" fill="#ffffff" stroke="#e3e8ef" stroke-width="1"/>
+<text x="1030" y="340" font-size="12" fill="#2f6feb" font-weight="700" text-anchor="start" >C6</text>
+<text x="1030" y="358" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start" >撰写</text>
+<rect x="330" y="382" width="124" height="46" rx="10" fill="#ffffff" stroke="#e3e8ef" stroke-width="1"/>
+<text x="340" y="402" font-size="12" fill="#2f6feb" font-weight="700" text-anchor="start" >C7</text>
+<text x="340" y="420" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start" >净化</text>
+<rect x="468" y="382" width="124" height="46" rx="10" fill="#ffffff" stroke="#e3e8ef" stroke-width="1"/>
+<text x="478" y="402" font-size="12" fill="#2f6feb" font-weight="700" text-anchor="start" >C8</text>
+<text x="478" y="420" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start" >校验</text>
+<rect x="606" y="382" width="124" height="46" rx="10" fill="#ffffff" stroke="#e3e8ef" stroke-width="1"/>
+<text x="616" y="402" font-size="12" fill="#2f6feb" font-weight="700" text-anchor="start" >C9</text>
+<text x="616" y="420" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start" >评审</text>
+<rect x="744" y="382" width="124" height="46" rx="10" fill="#ffffff" stroke="#e3e8ef" stroke-width="1"/>
+<text x="754" y="402" font-size="12" fill="#2f6feb" font-weight="700" text-anchor="start" >C10</text>
+<text x="754" y="420" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start" >修改</text>
+<rect x="882" y="382" width="124" height="46" rx="10" fill="#ffffff" stroke="#e3e8ef" stroke-width="1"/>
+<text x="892" y="402" font-size="12" fill="#2f6feb" font-weight="700" text-anchor="start" >C11</text>
+<text x="892" y="420" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start" >精校</text>
+<text x="330" y="450" font-size="13" fill="#6b7280" font-weight="400" text-anchor="start" >每道工序末尾一个守门：判据不过 → 回退，不许硬着头皮往下写</text>
+<path d="M304 144 L322 144" stroke="#e3e8ef" stroke-width="2" stroke-dasharray="4 4"/>
+<path d="M304 254 L322 254" stroke="#e3e8ef" stroke-width="2" stroke-dasharray="4 4"/>
+<path d="M304 364 L322 364" stroke="#e3e8ef" stroke-width="2" stroke-dasharray="4 4"/>
+</svg>

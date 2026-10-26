@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="390" viewBox="0 0 1200 390" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Noto Sans SC, Microsoft YaHei, sans-serif">
+<rect width="1200" height="390" fill="#ffffff"/>
+<text x="40" y="46" font-size="26" fill="#1a1a1a" font-weight="700" text-anchor="start" >三库供血：方法、知识、工具各管一段</text>
+<text x="40" y="74" font-size="15" fill="#6b7280" font-weight="400" text-anchor="start" >写作不是凭空生成——每个工序先去库里取料，取不到就走降级并声明</text>
+<rect x="40" y="104" width="366" height="262" rx="10" fill="#f4f7fc" stroke="#e3e8ef" stroke-width="1"/>
+<text x="64" y="146" font-size="16" fill="#2f6feb" font-weight="700" text-anchor="start" >M · 方法库</text>
+<text x="64" y="200" font-size="46" fill="#1a1a1a" font-weight="800" text-anchor="start" >18</text>
+<text x="118" y="200" font-size="14" fill="#6b7280" font-weight="400" text-anchor="start" >张方法卡</text>
+<circle cx="70" cy="232" r="3" fill="#2f6feb"/>
+<text x="84" y="236" font-size="14" fill="#1a1a1a" font-weight="400" text-anchor="start" >引言五阶段法</text>
+<circle cx="70" cy="258" r="3" fill="#2f6feb"/>
+<text x="84" y="262" font-size="14" fill="#1a1a1a" font-weight="400" text-anchor="start" >选题矩阵</text>
+<circle cx="70" cy="284" r="3" fill="#2f6feb"/>
+<text x="84" y="288" font-size="14" fill="#1a1a1a" font-weight="400" text-anchor="start" >综述类型四问</text>
+<circle cx="70" cy="310" r="3" fill="#2f6feb"/>
+<text x="84" y="314" font-size="14" fill="#1a1a1a" font-weight="400" text-anchor="start" >词数预算</text>
+<circle cx="70" cy="336" r="3" fill="#2f6feb"/>
+<text x="84" y="340" font-size="14" fill="#1a1a1a" font-weight="400" text-anchor="start" >DOCX 批量改稿</text>
+<rect x="426" y="104" width="366" height="262" rx="10" fill="#f4f7fc" stroke="#e3e8ef" stroke-width="1"/>
+<text x="450" y="146" font-size="16" fill="#2f6feb" font-weight="700" text-anchor="start" >K · 知识库</text>
+<text x="450" y="200" font-size="46" fill="#1a1a1a" font-weight="800" text-anchor="start" >4</text>
+<text x="477" y="200" font-size="14" fill="#6b7280" font-weight="400" text-anchor="start" >个挂载点</text>
+<circle cx="456" cy="232" r="3" fill="#2f6feb"/>
+<text x="470" y="236" font-size="14" fill="#1a1a1a" font-weight="400" text-anchor="start" >同题查重</text>
+<circle cx="456" cy="258" r="3" fill="#2f6feb"/>
+<text x="470" y="262" font-size="14" fill="#1a1a1a" font-weight="400" text-anchor="start" >证据基底</text>
+<circle cx="456" cy="284" r="3" fill="#2f6feb"/>
+<text x="470" y="288" font-size="14" fill="#1a1a1a" font-weight="400" text-anchor="start" >内部轮检索</text>
+<circle cx="456" cy="310" r="3" fill="#2f6feb"/>
+<text x="470" y="314" font-size="14" fill="#1a1a1a" font-weight="400" text-anchor="start" >经验双查证</text>
+<rect x="812" y="104" width="366" height="262" rx="10" fill="#f4f7fc" stroke="#e3e8ef" stroke-width="1"/>
+<text x="836" y="146" font-size="16" fill="#2f6feb" font-weight="700" text-anchor="start" >T · 工具库</text>
+<text x="836" y="200" font-size="46" fill="#1a1a1a" font-weight="800" text-anchor="start" >29</text>
+<text x="890" y="200" font-size="14" fill="#6b7280" font-weight="400" text-anchor="start" >个引擎位</text>
+<circle cx="842" cy="232" r="3" fill="#2f6feb"/>
+<text x="856" y="236" font-size="14" fill="#1a1a1a" font-weight="400" text-anchor="start" >文献检索</text>
+<circle cx="842" cy="258" r="3" fill="#2f6feb"/>
+<text x="856" y="262" font-size="14" fill="#1a1a1a" font-weight="400" text-anchor="start" >综述引擎</text>
+<circle cx="842" cy="284" r="3" fill="#2f6feb"/>
+<text x="856" y="288" font-size="14" fill="#1a1a1a" font-weight="400" text-anchor="start" >评审五席</text>
+<circle cx="842" cy="310" r="3" fill="#2f6feb"/>
+<text x="856" y="314" font-size="14" fill="#1a1a1a" font-weight="400" text-anchor="start" >去 AI 味</text>
+<circle cx="842" cy="336" r="3" fill="#2f6feb"/>
+<text x="856" y="340" font-size="14" fill="#1a1a1a" font-weight="400" text-anchor="start" >格式化交付</text>
+</svg>

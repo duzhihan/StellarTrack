@@ -1,206 +1,133 @@
-# StellarTrack — A Cross-Genre Academic Writing System
+# StellarTrack
 
-![License](https://img.shields.io/badge/License-MIT-yellow.svg) ![Version](https://img.shields.io/badge/version-v12.5.21-blue) ![Agent Skill](https://img.shields.io/badge/Agent%20Skill-O--S--C--E-green)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/duzhihan/StellarTrack/main/assets/readme/hero.svg" alt="StellarTrack" width="100%"/>
+</p>
 
-<div align="center">
+<p align="center">
+  <b>Give the model a writing process, not a wish.</b><br/>
+  <sub>A writing pipeline with gates: the AI does the labor, you sign off at every checkpoint.</sub>
+</p>
 
-<img src="https://raw.githubusercontent.com/duzhihan/StellarTrack/main/assets/readme/hero.svg" alt="StellarTrack" width="100%"/>
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"/></a>
+  <img src="https://img.shields.io/badge/version-v12.6.14-blue.svg" alt="version"/>
+  <img src="https://img.shields.io/badge/Agent%20Skill-Claude%20Code%20%7C%20WorkBuddy-2f6feb.svg" alt="Agent Skill"/>
+  <img src="https://img.shields.io/badge/lang-English%20%7C%20%E4%B8%AD%E6%96%87-informational.svg" alt="lang"/>
+</p>
 
-**A writing pipeline with gates: AI does the labor, you sign off.**
-
-O Orientation → S Strategy → C Construction (C1–C11) → E Experience ｜ [Quick Start](#installation) · [60-Second Demo](#a-60-second-demo) · [Comparison](#how-it-compares)
-
-</div>
-
-[简体中文](README.zh-CN.md) | **English**
+<p align="center">
+  <b>English</b> ｜ <a href="README.zh-CN.md">简体中文</a>
+</p>
 
 ---
 
-## The Problem It Solves
+## What usually goes wrong
 
-Ask a large model to “write my paper” and it produces something that *looks* like a paper in ten seconds. But you don't dare submit it — because it never walked through your thinking process, so every conclusion feels borrowed.
+- You ask a model to “write my paper”. Ten seconds later you have something that *looks* like a paper — and you don't dare submit it, because it never walked through your reasoning.
+- You ask for a revision; by round three it has forgotten what you locked in earlier and drifts further away.
+- You finish and can't tell: are the citations real? Does the abstract match the body? Is this actually submittable?
 
-What's missing is not text. It is **process**: topic selection that survives falsification, literature that gets verified against sources, frameworks that hold up, de-AI-ified prose, citations checked line by line, abstracts that match the body.
+The bottleneck is not text generation. **It is process.**
 
-StellarTrack's answer is one principle: **change the genre by swapping the payload, never the pipeline.**
+## How it works
 
-## Why I Built It
+<p align="center">
+  <img src="https://raw.githubusercontent.com/duzhihan/StellarTrack/main/assets/readme/overview.svg" alt="O-S-C-E pipeline" width="100%"/>
+</p>
 
-Writing papers, grant proposals, and long-form articles, I kept hitting the same wall:
+Four movements: **orient, commit, construct, accumulate.**
 
-- Halfway through, the argument collapses and I start over;
-- Delegating to AI yields “the average text anyone could write” — it doesn't survive a reviewer's first glance;
-- A pit I fixed last time, I fall into again next time — close the chat, lessons gone.
+Lock what this piece is actually arguing before a single sentence is written. Anchor the core claim to a falsifiable test. Then construct in eleven stages — topic, materials, literature, outline, drafting, writing, de-AI cleanup, format check, panel review, revision, final polish.
 
-Existing tools come in two flavors: polishers and full-auto generators. **The former ignore process; the latter steal your thinking.** I wanted a third kind: break my workflow into eleven stations, each with a gate — AI does the grunt work (searching, drafting, formatting), but every key decision stops and waits for my signature.
+**Every stage ends with a gate.** Miss the criteria and you go back; “just keep writing” is not an option. That is the single biggest difference from prompting a model directly: **it will not let you skip steps.**
 
-| Your recurring pain | StellarTrack's fix |
-|---|---|
-| Chaotic process, constant rewrites | Eleven stations in strict order, each with acceptance checks |
-| AI flavor that won't wash out | Two purification passes: semantic scan + rule re-check, item by item |
-| Lessons never stick | Post-mortem after every piece; only validated lessons enter the rule base |
+## What it writes
 
-## Proof, Not Promises
+<p align="center">
+  <img src="https://raw.githubusercontent.com/duzhihan/StellarTrack/main/assets/readme/tracks.svg" alt="13 tracks" width="100%"/>
+</p>
 
-Not paper architecture — real manuscripts from development:
+Thirteen tracks share one skeleton — **swap the payload, never the pipeline**.
 
-| Path | Manuscript | Result |
-|---|---|---|
-| Second half of pipeline | Forum submission, 3,739 chars | All de-AI-flavor checks passed |
-| First half of pipeline | Research proposal, 5,692 chars | Correctly identified early-stage draft |
-| Full chain | Long manuscript, 31,783 chars | All eleven stations completed, incl. genuine 637-char continuation |
-| Expert panel review | v12.3 six-seat re-evaluation | Six-dimension weighted **8.1/10** |
+An academic paper needs evidence and citation discipline; a public article needs a hook; fiction needs scene and rhythm. The skeleton holds; the weights and execution change. You don't relearn a new tool per genre.
 
-> All self-evaluated during development. **No external user validation yet** — that's the honest truth, and first on the roadmap.
+## Why you can trust the verdict
 
-## A 60-Second Demo
+<p align="center">
+  <img src="https://raw.githubusercontent.com/duzhihan/StellarTrack/main/assets/readme/scoring.svg" alt="six-dimension rubric" width="100%"/>
+</p>
 
-> **Me**: Write a course-ideology teaching case for me, due next week.
->
-> **StellarTrack**: Got it — official-document genre, teaching scenario. Two questions: ① course name and major? ② which ideology mapping points have you chosen?
->
-> **Me**: *Introduction to Digital Media Art*, three points.
->
-> **StellarTrack**: That's all I need. Starting… Materials station done — three gaps filled, cleared for pass-through. Next: literature review.
+One ruler only: six fixed-weight dimensions scored on a 1/3/5/7/9 anchor scale, with 7 as the pass line. Two reviewers score blind and independently; disagreement beyond a threshold triggers a reconciliation pass.
 
-Progress is visible at all times:
+There are also hard caps — fake citations, load-bearing numbers with no source, praise-only reviews. Hit one and the score is capped, no matter how polished the prose looks.
 
-```
-[✓]Orientation [✓]Strategy [✓]Topic [⏳]Materials [ ]Review …
-▌Station Card▌ Materials complete ｜ Gate passed ｜ Next: Literature Review
-```
+## Three libraries feed it
 
-When information is sufficient it doesn't ramble; when it must ask, at most two rounds, each with a recommended answer; wherever it guesses it says “I assumed X” — overrule anytime.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/duzhihan/StellarTrack/main/assets/readme/libraries.svg" alt="three libraries" width="100%"/>
+</p>
 
-## How It Works
+Nothing is invented from thin air. Every stage pulls from a library first: methods give the playbook, knowledge gives the material, tools give the engine. **If an engine is unavailable it degrades — and must say so.** Pretending to call one is a gate failure.
 
-![C1–C11 construction pipeline](https://raw.githubusercontent.com/duzhihan/StellarTrack/main/assets/readme/workflow.svg)
+## Scale and self-check
 
-| Phase | What it does | Key mechanism |
-|---|---|---|
-| **O — Orientation** | Converge vague intent into a real research question | Five-step listen-guess-restate loop |
-| **S — Strategy** | Thesis sentence first; cheap falsification before drafting | Argument-anchoring card + 7-element gate |
-| **C — Construction** | C1–C11 station pipeline | Numbered artifacts, tiered gates, three-layer loading (fixed skeleton / verb translation / registry matrix) |
-| **E — Experience** | The system sharpens with use | Calibration ledger + confidence-weighted writeback |
+<p align="center">
+  <img src="https://raw.githubusercontent.com/duzhihan/StellarTrack/main/assets/readme/stats.svg" alt="scale" width="100%"/>
+</p>
 
-Theory doc: [docs/THEORY.md](docs/THEORY.md) (design principles of the DiTing six-loop cognitive engine); runtime data templates in `data/_templates/`.
+69 skills, 13 tracks, 11 stages, 29 engine slots. The system ships with its own audit: version consistency, quote compliance, resolvable references, structural completeness, semantic contradictions. **If the audit doesn't pass, the change isn't done.**
 
-Mechanism overview — how gates bite and artifacts flow:
+## Get started in three steps
 
-<img src="https://raw.githubusercontent.com/duzhihan/StellarTrack/main/assets/readme/mechanism.svg" alt="Mechanism overview" width="100%"/>
+**1. Clone**
 
-Three standing rules:
-
-1. AI may participate in thinking but cannot replace understanding — every critical decision point halts for the human.
-2. Retrieval runs through real channels (native CNKI browser automation); the LLM never fabricates literature.
-3. De-AI-flavoring is a station, not a slogan — C7 runs dedicated dual engines.
-
-## When to Reach for It
-
-| Where you're stuck | Where it takes over |
-|---|---|
-| Staring at a blank page | Asks “what are you arguing” before writing a word |
-| A pile of literature, no gap statement | Three search rounds + gap formula force one sentence |
-| Draft reads less like you with every edit | Dual purification gates strip AI flavor item by item |
-| Five revisions in, can't tell good from bad | Every version numbered and scored; comparison returns to facts |
-| Dozens of revision comments incoming | Mode-split revision: paragraph-level or global diagnosis |
-| Last paper's pit, this paper again | The rule base is full of lessons already paid for |
-
-In one sentence: **writing like this deserves your thinking**.
-
-## Openness: Zero-Dependency Skeleton, Opt-In Engines
-
-The pipeline has two layers. **The skeleton layer has zero dependencies** — download and run: O-to-E flow, thirteen gates, numbered artifact trails all live inside `skills/xingchan/`, needing nothing external.
-
-**The engine layer mounts on demand.** Each station can take a dedicated skill for heavy lifting (search, review-writing, de-AI-flavoring, mechanism diagrams, evaluation…). This repo ships all default engines; the mapping lives in `skills/xingchan/references/C环节skill注册表.md`:
-
-| You want to… | Do this |
-|---|---|
-| Just run it | Install all skills for full coverage; missing engines degrade gracefully anyway |
-| See what's missing | `python check-engines.py` — readiness report per station |
-| Add an engine | Find the registry row, install that skill, done |
-| Bring your own keys | CNKI account, embedding keys etc. are yours; credentials go to env vars or interactive input only, **never into files or artifacts** |
-
-**Explore & extend**:
-
-- Teach it your method → write method cards in `skills/xingchan/references/methods/` (six-field format; existing cards serve as samples);
-- New genre/register → seven register workflow packs in `skills/xingchan/references/` (academic, official, social-media, proposal, retrospective, speech, creative); copy the structure;
-- Engine not cutting it → log a line in `data/graft-log.md`; two hits in the same cell auto-trigger candidate search (gap → trial mount → tenure);
-- Loose ideas → `data/insight-inbox.md` staging box, reviewed monthly.
-
-## Six Registers, One Pipeline
-
-Papers are the mother template; other genres swap content directives, never the flow.
-
-Academic (papers) ｜ Proposal (grants) ｜ Social media (long-form posts) ｜ Official (documents) ｜ Retrospective (project reports) ｜ Creative (fiction & poetry)
-
-## Repository Layout
-
-```
-skills/                  # 66 components, all six registers fully engined
-├── xingchan/        # Core: SKILL.md + six register workflows + references
-├── thinking-protocols/   # DiTing cognitive engine: Socratic pipeline + mode cards + S-layer seven cards
-├── Academic line         # abstract-checker / claim-audit / journal-fit / manuscript-review /
-│                         # reference-check / research-design / theoretical-framework /
-│                         # title-assessor / literature-review-writer / paper-mechanigraph-4ss /
-│                         # cnki-deepsearch / citation-format / good-story
-├── Revision line         # duzhihan-paper-editor / evidence-bound-revision /
-│                         # nsfc-review-guide / academic-paper-reviewer / human-review
-├── Proposal line         # nssfc-* (6 skills) / gongwen-draft
-└── Media line            # narrative-suite + narrative-* (26 dragoncraft skills) / oh-story /
-                          # wenfeng-slime / khazix-writer / ljg-writes / human-writing /
-                          # wechat-article-search / douyin-copy-extract / ljg-card /
-                          # ljg-present / lieflat-charts
-check-engines.py         # One-shot engine dependency check
-wordcount.py             # Character count (CJK-aware)
-data/                    # Runtime seeds: graft log + insight inbox + templates
-docs/THEORY.md           # DiTing six-loop cognitive engine theory
+```bash
+git clone https://github.com/duzhihan/StellarTrack.git
 ```
 
-## Installation
+**2. Drop it into your agent's skill directory**
 
-1. Copy everything under `skills/` into your agent platform's skill directory (WorkBuddy: `~/.workbuddy/skills/`)
-2. Two Node tools need dependencies: run `npm install` inside `skills/human-review/` and `skills/ljg-card/`
-3. Reload the skill list and start — trigger phrases are in each SKILL.md, or just say “use StellarTrack”
-4. (Optional) Run `python check-engines.py` to confirm engine readiness per station
+```bash
+cp -r StellarTrack/skills/xingchan ~/.workbuddy/skills/
+```
 
-## How It Compares
+**3. Ask in plain language**
 
-| | Academic helpers | Research multi-agents | Prompt frameworks | Workflow platforms | **StellarTrack** |
-|---|---|---|---|---|---|
-| Essence | Polish & format | Auto-generation | Input templates | Node orchestration | **End-to-end pipeline + quality gates** |
-| Weakness | Ignores process | Steals thinking | No process constraint | No writing criteria | Zero community validation |
+```
+Write a paper on opera dissemination on short-video platforms.
+```
 
-Versus prompt frameworks: **LangGPT teaches you to speak well; StellarTrack gets the paper finished.** Versus automation platforms: Dify orchestrates API nodes; StellarTrack orchestrates cognitive stations with acceptance gates. The cost, stated plainly: high design watermark, shallow battle record so far.
+It asks a few questions first (target journal, the claim you want, what materials exist), then walks C1 onward, pausing at each gate for your sign-off. It will not dump a finished draft on you in one shot.
 
-## Before You Use It
+> Want a dry run? Ask it to “stress-test this topic” — that mode reasons only, and writes nothing.
 
-**What runs out of the box**: the whole writing pipeline C3–C11 (review synthesis, outline, drafting, mechanism diagrams, revision, formatting, review) — every skill needed is bundled and runs on your host's AI alone.
+## What you get
 
-**What needs your environment**: the CNKI-native automation inside C1 (topic channel) and C2 (literature retrieval) requires three things this package cannot include: ① Google Chrome installed, ② a Chrome DevTools MCP connected in your host (config template: `skills/cnki-deepsearch/Google Chrome MCP Config.md`), ③ your own CNKI account login. **Missing any of them does not block the pipeline** — StellarTrack auto-falls back to a disclosed mode: you paste CNKI records/PDFs, or it uses WebSearch labeled `degraded retrieval · source X`. Configure all three and the native CNKI channel activates automatically.
+- An artefact per stage: topic card, material ledger, outline, review checklist, revision log.
+- Everything in Markdown: version-controllable, pasteable into Word, emailable to your supervisor.
+- Progress survives interruption: state is written to disk, so a new session can pick up where you left off.
 
-- When the progress bar shows `[⏸]`, come back and decide — your call unlocks the next step;
-- A rejection isn't a malfunction; it's the gate working;
-- External accounts (CNKI etc.) are bring-your-own; passwords and tokens never enter the repo;
-- If you find any personal-data residue, please open an Issue — handled immediately.
-- Some binary assets (images, Office docs, PDFs, fonts) are not bundled because the platform restricts bundled file types — see `MISSING-ASSETS.md` for the full list and why nothing functional is blocked.
+## FAQ
 
-**Roadmap**: first external user case study → English docs → contribution guide.
+**Will it write the paper for me?**
+It absorbs the repetitive labor. **The judgement stays yours** — topic choice, core claim, whether to submit. It offers candidates and reasons, never the final call.
 
-## Environment-Bound Components (not distributable)
+**Do I need API keys?**
+Not for the core pipeline. Some optional engines (literature search, semantic retrieval) need your own credentials; without them it degrades and tells you.
 
-| Component | Note |
-|---|---|
-| C1–C2 CNKI channels (topic + retrieval) | Protocol lives in `skills/xingchan/references/学术档工作流.md`; needs Chrome DevTools MCP + your own CNKI session. Without it, the pipeline auto-degrades to a disclosed fallback (pasted records / labeled WebSearch) — it never silently fakes CNKI |
-| C6 tencent-docx typesetting | WorkBuddy built-in plugin; substitute your platform's docx exporter |
-| Gongwen fonts | `gongwen-draft/assets/fonts/` excluded for font licensing; install 仿宋_GB2312 / 方正小标宋 yourself |
+**Does it work in Chinese?**
+It was built for Chinese humanities and social science writing: terminology, citation format, and journal conventions are Chinese-first.
 
-Private runtime data (preference profiles, traces, calibration ledgers) is not included.
+**Why Markdown by default?**
+Because most Word formatting is wasted effort. Ask explicitly and it will convert.
 
-## License & Provenance
+## Honest limits
 
-See [NOTICE.md](NOTICE.md). Components are listed per-item as original vs third-party-pending-verification; check licenses before using third-party items.
+- **No external user validation yet.** This is one person's system, tested on real manuscripts, without community-scale feedback — that is item one on the roadmap.
+- It stops you from skipping steps and from faking citations. It cannot stop a topic that wasn't worth writing.
+- The rubric is calibrated, but on the author's own manuscripts, not on a third-party blind set.
 
 ## License
 
-MIT © 2026 Ruojun（duzhihan）
+MIT — commercial use, modification, and redistribution permitted. Per-item provenance and licensing: see [NOTICE.md](NOTICE.md).

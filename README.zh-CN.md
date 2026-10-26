@@ -1,231 +1,134 @@
-# 星躔 · StellarTrack — 跨场景学术写作系统
+# 星躔 StellarTrack
 
-![License](https://img.shields.io/badge/License-MIT-yellow.svg) ![Version](https://img.shields.io/badge/version-v12.5.21-blue) ![Agent Skill](https://img.shields.io/badge/Agent%20Skill-O--S--C--E-green)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/duzhihan/StellarTrack/main/assets/readme/hero.svg" alt="StellarTrack" width="100%"/>
+</p>
 
-<div align="center">
+<p align="center">
+  <b>给 AI 一套写论文的流程，而不是让它猜。</b><br/>
+  <sub>一条带关卡的写作流水线：AI 干活，你在每个关卡签字。</sub>
+</p>
 
-<img src="https://raw.githubusercontent.com/duzhihan/StellarTrack/main/assets/readme/hero.svg" alt="星躔 StellarTrack" width="100%"/>
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"/></a>
+  <img src="https://img.shields.io/badge/version-v12.6.14-blue.svg" alt="version"/>
+  <img src="https://img.shields.io/badge/Agent%20Skill-Claude%20Code%20%7C%20WorkBuddy-2f6feb.svg" alt="Agent Skill"/>
+  <img src="https://img.shields.io/badge/lang-%E4%B8%AD%E6%96%87%20%7C%20English-informational.svg" alt="lang"/>
+</p>
 
-**一条带闸门的写作流水线：AI 出力，你放行。**
-
-O 定向 → S 运思 → C 建构（C1–C11） → E 沉淀 ｜ [快速开始](#安装) · [60 秒样例](#60-秒看它接一单) · [同类对照](#同类项目对比)
-
-</div>
-
-**简体中文** | [English](README.md)
+<p align="center">
+  <b>简体中文</b> ｜ <a href="README.md">English</a>
+</p>
 
 ---
 
-## 从一个场景说起
+## 你可能正卡在这儿
 
-凌晨一点，你对着屏幕上第三版开头发呆。
+- 让大模型“写篇论文”，十秒给你一篇像论文的东西——**但你不敢投**。它没走过你的思考，每个结论都像借来的。
+- 想让它按你的思路改，改到第三轮它就忘了前两轮定了什么，越改越远。
+- 写完了心里没底：引证是真的吗？摘要和正文对得上吗？这一稿到底够不够投出去？
 
-选题是好的，文献读了不少，脑子里也有话想说。可真到了下笔，问题全冒出来了：综述像读书笔记，理论框架撑不起后面的论证，写出来的句子一股“AI 味”，摘要吹的正文接不住……
+问题不在文字生成。**在过程**。
 
-你把“帮我写篇论文”扔给大模型，它十秒钟给你一篇像模像样的东西。
+## 它怎么工作
 
-但你不敢投。因为你知道：**它没有走过你走过的思考过程，所以它的每一个结论你都替它心虚。**
+<p align="center">
+  <img src="https://raw.githubusercontent.com/duzhihan/StellarTrack/main/assets/readme/overview.svg" alt="O-S-C-E 流程" width="100%"/>
+</p>
 
-这，就是星躔要解决的、那件具体的事。
+四个字概括：**定目标、想清楚、搭结构、留经验**。
 
-## 我为什么造它
+先把“这篇要解决什么”钉死（定不下来不许动笔），再把核心判断句锚住（配一个能被证伪的验证方式），然后把写作拆成十一道工序——选题、材料、综述、大纲、填充、撰写、净化、校验、评审、修改、精校。
 
-我写论文、标书、公众号长文时，反复撞上同一堵墙：
+**每道工序末尾有一道关卡**。判据不过，回退重做，不许“先写着再说”。这就是它跟“直接问大模型”最大的区别：**它不让你跳步**。
 
-- 写到一半发现立论没立住，推倒重来；
-- 让 AI 代笔，得到“谁都能写出来的平均文本”，撑不过审稿人第一眼；
-- 这次改对的坑，下一篇照踩——对话一关，教训清零。
+## 能写什么
 
-市面上的工具只有两种：帮你润色的，和替你全自动生成的。**前者不管过程，后者抢走思考。**我要第三种：把我的写作流程拆成十一道工序，每道设一道闸门——AI 把检索、初稿、排版这些苦力活干完，但每个关键决定都停下来等我签字。
+<p align="center">
+  <img src="https://raw.githubusercontent.com/duzhihan/StellarTrack/main/assets/readme/tracks.svg" alt="13 个档位" width="100%"/>
+</p>
 
-这就是星躔。它治好了我三个老毛病，也许也是你的：
+十三个档位共用同一套骨架，**换的是文体，不换流程**。
 
-| 你的老毛病 | 星躔的办法 |
-|---|---|
-| 流程乱，写到一半推倒重来 | 十一道工序只许顺着走，每道有验收 |
-| AI 味洗不掉 | 两道净化关：语义扫描＋规则复检，逐项留痕 |
-| 经验留不下，下篇照踩坑 | 每篇结束复盘一次，可信的经验才存进规则库 |
+学术论文要证据和规范，公众号要可读和钩子，小说要画面和节奏——骨架一样，权重和执行方式不同。你不需要为每种文体学一套新工具。
 
-发通知、改邮件？直接问大模型就好，用不上这套。
+## 它凭什么说自己可靠
 
-## 你缺的不是文字，是工序
+<p align="center">
+  <img src="https://raw.githubusercontent.com/duzhihan/StellarTrack/main/assets/readme/scoring.svg" alt="六维评分" width="100%"/>
+</p>
 
-论文写作不是“一次生成”，是**一条流水线**：选题要测杀、材料要备齐、结构要先立、成稿要打磨、引用要对表、评审要过门。常规做法为什么都差一步：
+打分只有一把尺：六个维度固定权重，1／3／5／7／9 五档锚点，**7 分才放行**。同一稿由两个席位背靠背打分，分差超过阈值就进复核，不许一个人说了算。
 
-- **直接让大模型写**：跳过全部工序。产出的是“文章的形状”，不是“论证的结构”。
-- **堆一堆提示词**：每个环节都有招，但环节之间不衔接——选题卡和初稿之间隔着一条断头路。
-- **模板化写作框架**：给了骨架，但骨架不会随着文体变（期刊论文、会议稿、申报书、公文各是各的规矩）。
+另有封顶条款：假引证、关键数据没来源、通篇只夸不批——命中即封顶，不给高分蒙混过去。
 
-星躔的回答是一条原则：**换文体只换装载，不换流水线。**
+## 三库供血
 
-## 先看证据
+<p align="center">
+  <img src="https://raw.githubusercontent.com/duzhihan/StellarTrack/main/assets/readme/libraries.svg" alt="三库" width="100%"/>
+</p>
 
-不是纸上架构，开发期真稿跑出来的：
+写作不是凭空生成。每个工序开工先去库里取料：方法库给打法，知识库给材料，工具库给引擎。**取不到就走降级，并且必须声明**——不许假装调用过。
 
-| 路径 | 稿件 | 结果 |
-|---|---|---|
-| 校验后半程 | 论坛投稿论文 3739 字 | 去 AI 味检查全项通过 |
-| 校验前半程 | 研究方案 5692 字 | 正确识别早期稿件，不误套后段检查 |
-| 全链路 | 长稿 31783 字 | 十一道工序走通，中途真实续写 637 字 |
-| 专家团评审 | v12.3 六席重评 | 六维加权 **8.1/10** |
+## 规模与自检
 
-> 都是开发期自评自测。**还没有任何外部用户检验**——这是实话，也在路线图第一位。
+<p align="center">
+  <img src="https://raw.githubusercontent.com/duzhihan/StellarTrack/main/assets/readme/stats.svg" alt="规模" width="100%"/>
+</p>
 
-## 60 秒看它接一单
+69 个 Skill、13 个档位、11 道工序、29 个引擎位。系统自己带体检脚本：版本一致性、引号合规、引用能否解析、结构是否完整、语义层有没有自相矛盾——**改完不跑体检不算改完**。
 
-> **我**：帮我写个课程思政教学案例，下周交教务处。
->
-> **星躔**：收到——这是规范类·教学场景。只问两件事：①课程名和专业？②思政映射点您定了哪几个？
->
-> **我**：《数字媒体艺术概论》，定了三个。
->
-> **星躔**：齐了，开工。……走到材料建档了，缺口三项查齐，放行，下一步综述。
+## 三步上手
 
-它干活时你随时看得见进度：
+**1. 拿到它**
 
-```
-[✓]定向 [✓]运思 [✓]选题 [⏳]材料 [ ]综述 …
-▌环节卡▌ 材料建档完成 ｜ 验收通过 ｜ 下一步：综述
+```bash
+git clone https://github.com/duzhihan/StellarTrack.git
 ```
 
-信息给足了它不废话；该问的最多问两轮，每问都附推荐答案；猜的地方明说“我假设了 X”，随时推翻。
+**2. 放到你的 Agent 技能目录**
 
-## 它是怎么工作的
-
-![C1–C11 认知建构流水线](https://raw.githubusercontent.com/duzhihan/StellarTrack/main/assets/readme/workflow.svg)
-
-四段架构，各司其职：
-
-| 段 | 干什么 | 关键机制 |
-|---|---|---|
-| **O 目标定向** | 把模糊意图收敛成真问题 | 五步听猜复述，≤2 轮直通 |
-| **S 思考决策** | 判断句先行，先证伪再动工 | 论证锚定卡＋七要素守门 |
-| **C 认知建构** | C1–C11 工序流水线 | 产物带号流转＋守门分级＋三层装载（骨架不变层／动词翻译半变层／注册表全变层） |
-| **E 经验共创** | 让系统越用越准 | 校准台账＋置信加权回写 |
-
-配套理论文档见 [docs/THEORY.md](docs/THEORY.md)（谛听六环认知引擎的设计原理）；运行时数据模板见 `data/_templates/`。
-
-机制总图——闸门怎么卡、产物怎么流转：
-
-<img src="https://raw.githubusercontent.com/duzhihan/StellarTrack/main/assets/readme/mechanism.svg" alt="机制总图" width="100%"/>
-
-三条设计铁律贯穿全程：
-
-1. **AI 可参与思考，不能替你理解**——关键拍板点必停，确认必回显。
-2. **检索走真实通道**——知网原生界面自动化，LLM 不自建文献（防幻觉）。
-3. **去 AI 味是工序不是口号**——C7 净化独立设站，双引擎联检。
-
-## 什么时候轮到它
-
-不看头衔，看你卡在哪：
-
-| 卡点 | 它接手处 |
-|---|---|
-| 面对空白页敲不出第一句 | 先问清“要论证什么”，再动笔 |
-| 文献读了一摞，说不出别人缺什么 | 三轮检索＋缺口公式，逼成一句话 |
-| 初稿越读越不像自己写的 | 净化双道门逐项去 AI 味 |
-| 改到第五版分不清好坏 | 每版有编号有分数，比较回到事实 |
-| 退修意见几十条砸过来 | 分模式返修：逐段对照／全局诊断各归其位 |
-| 上篇的坑这篇又踩一遍 | 规则库里全是上篇攒下的教训 |
-
-一句话：**这份写作值得你想清楚**。
-
-## 开放性：骨架开箱即用，引擎按需自配
-
-这套流水线分两层。**骨架层零依赖**——下载即可跑：O 到 E 的工序流转、十三道闸门、编号留痕全在 `skills/xingchan/` 内，不依赖任何外部工具。
-
-**引擎层按需挂**。每道工序可以接一个专职 skill 干重活（检索、综述、去 AI 味、机制图、评审……本仓库已随附全部默认引擎，每道工序的对应关系见 `skills/xingchan/references/C环节skill注册表.md`）：
-
-| 你想要 | 动作 |
-|---|---|
-| 先跑起来 | 装完全部 skill 即满配；缺引擎时也会自动走降级路径，骨架照样走完全程 |
-| 看缺什么 | `python check-engines.py` 一键体检，输出各工序引擎就绪/缺失报表 |
-| 补某道工序的引擎 | 查注册表对应行，安装该 skill 即生效；候选工具登记册见 `skills/xingchan/references/T工具箱_待加载清单.md` |
-| 自带钥匙 | 知网账号、embedding key 等自备；凭据只进环境变量或交互输入，**绝不写入文件与产物** |
-
-**探索与扩展**：
-
-- 教它你的写作方法 → 往 `skills/xingchan/references/methods/` 写方法卡（六字段制，现有卡片是现成样例）；
-- 换文体／加档位 → 七套档位工作流指令包都在 `skills/xingchan/references/`（学术、规范、传播、申报、回溯、演讲、创作），照抄结构写新档即可；
-- 引擎不好用 → 在 `data/graft-log.md` 记一行缺口，同格命中两次自动触发候选搜寻（三步嫁接环：缺口→试挂→转正）；
-- 灵感废料 → `data/insight-inbox.md` 暂存箱，月检回流。
-
-## 六档场景，一套管线
-
-论文是母版；其他文体换内容指令，不换流程。讲话稿＝传播档的现场变体。
-
-学术（论文）｜ 申报（标书）｜ 传播（公众号）｜ 规范（公文）｜ 回溯（结题报告）｜ 创作（小说诗歌）
-
-## 目录结构
-
-```
-skills/                  # 共 66 件，六档位全引擎
-├── xingchan/        # 星躔本体：SKILL.md＋六档工作流＋references 全套
-├── gushi-namer/          # 古诗文起名（创作档·起名子类 T 层挂载，引用式包装）
-├── thinking-protocols/   # 谛听 · 认知引擎：苏格拉底管道＋模式卡库＋S 层七卡
-├── 学术线                # abstract-checker / claim-audit / journal-fit / manuscript-review /
-│                         # reference-check / research-design / theoretical-framework /
-│                         # title-assessor / literature-review-writer / paper-mechanigraph-4ss /
-│                         # cnki-deepsearch / citation-format / good-story
-├── 修改评审线            # duzhihan-paper-editor / evidence-bound-revision /
-│                         # nsfc-review-guide / academic-paper-reviewer / human-review
-├── 申报线                # nssfc-*（6件）/ gongwen-draft
-└── 传播线                # narrative-suite＋narrative-*（雕龙26件）/ oh-story / wenfeng-slime /
-                          # khazix-writer / ljg-writes / human-writing / wechat-article-search /
-                          # douyin-copy-extract / ljg-card / ljg-present / lieflat-charts
-check-engines.py         # 引擎依赖一键体检
-wordcount.py             # 字数统计（按中文实字计）
-data/                    # 运行时种子：嫁接日志＋灵感暂存箱＋数据模板
-docs/THEORY.md           # 谛听六环认知引擎理论文档
+```bash
+# Claude Code / WorkBuddy 等支持 Agent Skill 的客户端
+cp -r StellarTrack/skills/xingchan ~/.workbuddy/skills/
 ```
 
-## 安装
+**3. 说一句人话**
 
-1. 将 `skills/` 下全部目录复制到你所用 Agent 平台的技能目录（如 WorkBuddy：`~/.workbuddy/skills/`）
-2. 两个 Node 工具需装依赖：在 `skills/human-review/` 与 `skills/ljg-card/` 内执行 `npm install`
-3. 重载技能列表即可使用——触发词见各 SKILL.md，或直接说“用星躔写论文”
-4. （可选）跑一遍 `python check-engines.py`，确认各工序引擎就绪
+```
+帮我写一篇论文，主题是「短视频平台上的戏曲传播」
+```
 
-<details>
-<summary><b>为什么叫“星躔”</b></summary>
+它会先问你几个问题（投什么刊、想要什么判断、材料有哪些），然后从 C1 开始，一道工序一道工序往下走。**每过一道关卡都会停下来等你确认**——不会一口气写完甩给你。
 
-躔（chán），星辰运行的轨迹（《方言》：“日运为躔”）。文章章法如星之轨迹，所以全系统的部件都用二十八宿命名，二十八宿 28/28 各有其职：井宿管定向，心宿管运思，角娄奎室管前四道工序……完整对照见 `skills/xingchan/references/星宿命名册.md`。代码里喊编号，文档里唤星宿，出门称星躔。
+> 想先看效果？让它跑“帮我捋一捋这个选题行不行”，这个模式只思考不出稿。
 
-</details>
+## 你会得到什么
 
-## 同类项目对比
+- 每一步都有产物：选题卡、材料账本、结构大纲、评审清单、修改记录。
+- 全部是 Markdown，能进 Git，能贴进 Word，能发给导师。
+- 中途断了不丢进度：状态写在磁盘上，换个会话接着走。
 
-| | 学术辅助工具 | 科研多智能体 | 提示词框架 | 工作流平台 | **星躔** |
-|---|---|---|---|---|---|
-| 本质 | 润色排版 | 自动化生成 | 输入模板 | 流程节点编排 | **端到端流水线＋质量闸** |
-| 短板 | 不管过程 | 抢走思考 | 无过程约束 | 无写作判据 | 社区检验为零 |
+## 常见问题
 
-对提示词框架：**LangGPT 教你把话说好，星躔管把文章写完**。对自动化平台：Dify 编排 API 节点，星躔编排带验收的认知工序。代价也直说：设计水位高，实战水位尚浅。
+**它会替我写论文吗？**
+它替你干重复劳动，但**判断句必须是你的**。选题、核心论点、要不要发，它只给候选和理由，不替你拍板。
 
-## 用之前知道这些
+**要不要 API key？**
+核心流程不需要。部分外挂引擎（文献检索、语义检索）需要你自己配，配不了就自动降级并告诉你。
 
-- 进度条出现 `[⏸]` 时回来拍板，你的决定解锁下一步；
-- 被打回不是故障，是闸门在工作；
-- 外部账号（知网等）自备，密码 token 绝不入库；
-- 发现个人信息残留请提 Issue，立即处理。
+**中文写作行不行？**
+本来就是为中文人文社科写的。术语、体例、引证格式按中文期刊惯例。
 
-**路线图**：首个外部用户实测案例 → 英文文档 → 贡献指南。
+**为什么默认只给 Markdown？**
+因为大部分 Word 排版是白费功夫。真要交 Word，明确说一声，它再转。
 
-## 环境绑定件说明（不在仓库、也无法打包）
+## 诚实说明
 
-| 组件 | 说明 |
-|---|---|
-| C2 知网选题通道 | 协议全文在 `skills/xingchan/references/学术档工作流.md`，需 Chrome 远程调试＋本人知网账号会话 |
-| C6 排版 tencent-docx 线 | WorkBuddy 平台内置组件；其他平台用各自的 docx 导出方案替代 |
-| 公文字体 | `gongwen-draft/assets/fonts/` 因版权未随仓库分发，使用前自行安装仿宋_GB2312、方正小标宋等并放回该目录 |
+- **还没有外部用户验证**。这是一个人的系统，跑过真实稿件，但没有社区规模的使用反馈——这是路线图第一项。
+- 它拦得住“跳步”和“假装引用”，拦不住“选题本身没价值”。判断力仍是你的。
+- 打分尺子经过校准，但校准样本来自作者自己的稿件，不是第三方盲测。
 
-私有运行时数据（偏好画像、思维轨迹、校准台账等）不入库。
+## 许可
 
-## 许可与来源
-
-见 [NOTICE.md](NOTICE.md)——各子组件分“自研／第三方待核”两档逐项列明，第三方件使用前请自查许可。
-
-## License
-
-MIT © 2026 Ruojun（duzhihan）
-- 部分二进制资产（图片、Office 文档、PDF、字体）因平台文件类型限制未随包发布——完整清单与“为何不影响主流程”见 `MISSING-ASSETS.md`。
+MIT。可商用、可修改、可分发。逐项来源与授权说明见 [NOTICE.md](NOTICE.md)。

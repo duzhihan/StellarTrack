@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="322" viewBox="0 0 1200 322" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Noto Sans SC, Microsoft YaHei, sans-serif">
+<rect width="1200" height="322" fill="#ffffff"/>
+<text x="40" y="44" font-size="24" fill="#1a1a1a" font-weight="700" text-anchor="start" >规模与自检</text>
+<rect x="40" y="70" width="356" height="112" rx="10" fill="#f4f7fc" stroke="#e3e8ef" stroke-width="1"/>
+<text x="62" y="116" font-size="34" fill="#2f6feb" font-weight="800" text-anchor="start" >69</text>
+<text x="104" y="116" font-size="15" fill="#1a1a1a" font-weight="600" text-anchor="start" >个 Skill</text>
+<text x="62" y="146" font-size="12" fill="#6b7280" font-weight="400" text-anchor="start" >学术 · 传播 · 创作 · 公文 · 申报 · 教学</text>
+<text x="62" y="166" font-size="11" fill="#6b7280" font-weight="400" text-anchor="start" >每次改动都跑体检：不过不放行</text>
+<rect x="416" y="70" width="356" height="112" rx="10" fill="#f4f7fc" stroke="#e3e8ef" stroke-width="1"/>
+<text x="438" y="116" font-size="34" fill="#2f6feb" font-weight="800" text-anchor="start" >13</text>
+<text x="480" y="116" font-size="15" fill="#1a1a1a" font-weight="600" text-anchor="start" >个档位</text>
+<text x="438" y="146" font-size="12" fill="#6b7280" font-weight="400" text-anchor="start" >含 6 个创作子类</text>
+<text x="438" y="166" font-size="11" fill="#6b7280" font-weight="400" text-anchor="start" >每次改动都跑体检：不过不放行</text>
+<rect x="792" y="70" width="356" height="112" rx="10" fill="#f4f7fc" stroke="#e3e8ef" stroke-width="1"/>
+<text x="814" y="116" font-size="34" fill="#2f6feb" font-weight="800" text-anchor="start" >11</text>
+<text x="856" y="116" font-size="15" fill="#1a1a1a" font-weight="600" text-anchor="start" >道工序</text>
+<text x="814" y="146" font-size="12" fill="#6b7280" font-weight="400" text-anchor="start" >C1–C11，逐道守门</text>
+<text x="814" y="166" font-size="11" fill="#6b7280" font-weight="400" text-anchor="start" >每次改动都跑体检：不过不放行</text>
+<rect x="40" y="198" width="356" height="112" rx="10" fill="#f4f7fc" stroke="#e3e8ef" stroke-width="1"/>
+<text x="62" y="244" font-size="34" fill="#2f6feb" font-weight="800" text-anchor="start" >29</text>
+<text x="104" y="244" font-size="15" fill="#1a1a1a" font-weight="600" text-anchor="start" >个引擎位</text>
+<text x="62" y="274" font-size="12" fill="#6b7280" font-weight="400" text-anchor="start" >检索 / 综述 / 评审 / 润色</text>
+<text x="62" y="294" font-size="11" fill="#6b7280" font-weight="400" text-anchor="start" >每次改动都跑体检：不过不放行</text>
+<rect x="416" y="198" width="356" height="112" rx="10" fill="#f4f7fc" stroke="#e3e8ef" stroke-width="1"/>
+<text x="438" y="244" font-size="34" fill="#2f6feb" font-weight="800" text-anchor="start" >7</text>
+<text x="459" y="244" font-size="15" fill="#1a1a1a" font-weight="600" text-anchor="start" >项自检</text>
+<text x="438" y="274" font-size="12" fill="#6b7280" font-weight="400" text-anchor="start" >版本·引号·引用·结构·语义</text>
+<text x="438" y="294" font-size="11" fill="#6b7280" font-weight="400" text-anchor="start" >每次改动都跑体检：不过不放行</text>
+<rect x="792" y="198" width="356" height="112" rx="10" fill="#f4f7fc" stroke="#e3e8ef" stroke-width="1"/>
+<text x="814" y="244" font-size="34" fill="#2f6feb" font-weight="800" text-anchor="start" >MIT</text>
+<text x="877" y="244" font-size="15" fill="#1a1a1a" font-weight="600" text-anchor="start" >许可</text>
+<text x="814" y="274" font-size="12" fill="#6b7280" font-weight="400" text-anchor="start" >可商用，可修改</text>
+<text x="814" y="294" font-size="11" fill="#6b7280" font-weight="400" text-anchor="start" >每次改动都跑体检：不过不放行</text>
+</svg>
