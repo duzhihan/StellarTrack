@@ -8,7 +8,6 @@ description: 演讲铸造器（Outline-Faithful）。基于 orgmode/markdown out
   ~/Downloads/。
 user_invocable: true
 version: 3.0.0
-disable-model-invocation: true
 ---
 
 # ljg-present: 演讲铸造器

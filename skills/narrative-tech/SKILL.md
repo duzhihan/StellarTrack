@@ -1,13 +1,21 @@
 ---
 name: dragoncraft-geek
-description: 雕龙·极客 | DragonCraft Geek - ［何时使用］当需要将技术壁垒/市场机会/团队背景变成有逻辑、有冲突、有认知、有价值的科技叙事时；当需要技术故事、投资人 pitch、竞品分析、技术白皮书时
+description: 雕龙·极客 | DragonCraft Geek -
+  ［何时使用］当需要将技术壁垒/市场机会/团队背景变成有逻辑、有冲突、有认知、有价值的科技叙事时；当需要技术故事、投资人 pitch、竞品分析、技术白皮书时
 author: ant (CEO 助理)
 created: 2026-04-30
 version: 1.1.0
 skill_type: 通用🟡
-allowed-tools: [Bash, Read, Write, Exec]
-tags: [dragoncraft, dragoncraft-geek, narrative, storytelling]
-disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Exec
+tags:
+  - dragoncraft
+  - dragoncraft-geek
+  - narrative
+  - storytelling
 ---
 
 # 雕龙·极客 (DragonCraft Geek)

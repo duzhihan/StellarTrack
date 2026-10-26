@@ -1,188 +1,256 @@
-﻿# Calibration Mode Protocol
+# Calibration Mode Protocol
 
-**Status**: v3.2
 **Parent skill**: `academic-paper-reviewer`
 **Mode name**: `calibration`
-**Purpose**: Measure this reviewer's own false-negative rate (FNR), false-positive rate (FPR), and balanced accuracy against a user-supplied gold-standard set, then attach the resulting error profile as a confidence disclosure to subsequent reviews in the same session.
+**Purpose**: Measure a bounded decision-error profile against a user-adjudicated target set, or obtain a cheaper directional readout. This protocol never turns criterion judgements into an absolute quality score.
 
----
+## Epistemic status
 
-## Why this mode exists
+An ordinary review has `calibration_status: NOT_CALIBRATED`. Its categorical judgements are tied to named criteria and evidence in one manuscript; they do not establish a stable interval scale, paper ranking, acceptance probability, or cross-session reproducibility.
 
-A single LLM reviewer produces an absolute 0-100 rubric score, but that score is weakly interpretable without knowing the reviewer's error profile. Two reviewers could give the same paper a 65, yet one might systematically over-score weak methodology papers and the other might systematically under-score cross-disciplinary work. Absolute scores don't reveal this.
+The full tier may produce a candidate empirical target profile only after completing the protocol against the current domain, article type, venue criteria, rubric version, review mode, and exact replay-derived `execution_topology_sha256`. `PROFILE_MEASURED` means only that errors were measured on that bounded target set. It is not a claim of universal calibration and must not be transported to a materially different target or review topology.
 
-Lu et al. (2026, Nature 651:914-919) demonstrated in Table 1 that an LLM-based Automated Reviewer can approach human balanced accuracy (0.65 vs human 0.67-0.73 on 500 ICLR 2022 papers) while having a dramatically different error profile: FNR 0.17 vs human 0.52, at the cost of FPR 0.50 vs human 0.17-0.34. Human reviewers miss half of the papers that should be rejected; the Automated Reviewer misses very few but over-rejects more.
+**Current application boundary:** candidate profile production and live-review
+profile application are separate operations. Until a closed, hash-bound target
+profile schema plus replay validator is shipped, reviewer seats and the current
+Schema 6 package adapter emit `calibration_status: NOT_CALIBRATED`; a prose
+profile ID or apparent topology match cannot upgrade them. The full-tier report
+may describe its measured candidate profile, but must label it
+`application_status: NOT_WIRED_TO_LIVE_REVIEW`.
 
-Translation for ARS: **our reviewer has an error profile too, and we do not currently measure it.** Calibration mode closes that gap. It does not try to make the reviewer perfect; it makes the reviewer's imperfections legible.
-
----
+The directional tier always reports `calibration_status: NOT_CALIBRATED`. Three single panels provide directional observations, not an error profile.
 
 ## Inputs
 
-1. **Gold-standard set**: 5-20 papers the user has labelled with known outcomes. Minimum 5; recommended 10-15. Each entry:
-   - Paper file path or text
-   - Ground-truth label: `accept`, `reject`, or `borderline`
-   - Venue context (journal/conference, tier)
-   - Optional: human reviewer scores for comparison
+1. **Tier**: `full` by default. Use `directional` only when explicitly selected.
+2. **Empirical target set**:
+   - Full: 5–20 user-adjudicated papers, preferably 10–15, with at least one acceptable-side and one reject-side label.
+   - Directional: exactly three papers—one `minor_revision`, one `major_revision`, and one extreme anchor (`accept` or `reject`).
+3. **Per-paper fields**:
+   - manuscript path or text;
+   - adjudicated verdict: `accept`, `minor_revision`, `major_revision`, `reject`, or legacy `borderline` in the full tier only;
+   - venue, domain, and article-type context;
+   - optional `per_dimension_gold_judgements`, using the same criterion-bound categories as `quality_rubrics.md`, with the criterion source and adjudication rationale.
+4. **Target-profile identity**: domain, article type, venue criteria/version, rubric version, review mode, target-set identifier, adjudication date, and one exact `execution_topology_sha256` derived from actual completed panel provenance. A prose configuration label or intended route is not a match key.
+5. **Session persistence**: session-only. Do not cache manuscripts or profiles across sessions.
 
-2. **Domain specification**: the user's target field, used to seed `field_analyst_agent`. Calibration for "machine learning venues" is not valid for "qualitative education research" 鈥?error profiles are domain-specific.
+### Gold-label isolation
 
-3. **Session persistence**: the error profile is cached for the **current session only**. No cross-session caching, no `~/.ars_calibration_cache/` directory. Calibration is explicitly opt-in per the v3.2 design decision: the user decides when to spend tokens on calibration, and a new session starts fresh. If the user wants to reuse a profile across sessions, they re-run calibration or paste a prior Calibration Report as a session prompt.
+Gold verdicts, dimension judgements, rationales, and human assessments must not enter field-analyst, reviewer, or synthesizer context. Join them only after a panel verdict is frozen. The substrate plan must also be fixed without consulting gold material.
 
----
+This isolation applies to transport as well as prompt construction: no gold
+verdict, dimension judgement, rationale, human assessment, or target-set
+outcome may enter a provider payload or determine the substrate plan. The join
+is post-freeze only, and joined material cannot be fed back into another panel
+within the same attempt.
 
 ## Process
 
 ### Phase 0: Intake
 
-- Verify the set has at least one `accept` and one `reject` (otherwise FNR or FPR is undefined).
-- If all labels are on one side, refuse to proceed and ask the user for at least one counter-example.
-- Warn if n < 10: "Calibration with fewer than 10 papers produces wide confidence intervals. Results should be treated as directional, not conclusive."
+- Full tier: verify 5–20 papers and both sides of the binary decision boundary. Warn that small or clustered target sets yield uncertain, non-transportable estimates. Legacy `borderline` papers are reported separately and excluded from binary metrics.
+- Directional tier: verify exactly the required three-paper composition, one run per paper, and no `borderline` item. State that the result remains `NOT_CALIBRATED`.
+- Never infer the tier from paper count; ask when the user's selection is missing.
 
-### Phase 1: Run `full` mode on each gold paper, with ensembling
+### Phase 1: Run panels
 
-For each paper, run the standard `full` review pipeline **5 times** (ensembling, per Lu 2026 Methods A.1.1). Each run uses a fresh context window to avoid within-session bias. Aggregate:
-- Median rubric score per dimension
-- Variance across the 5 runs (reported as a stability indicator)
-- Editorial decision (majority vote across 5)
+**Full tier.** Run 3 or 5 panel replicates per paper (default 5), then derive the panel verdict by majority vote. Within each replicate, the five seats must have distinct recorded invocation-context IDs. The current provenance artifact checks only that within-panel separation; it does not compare IDs against earlier replicates and therefore does not establish cross-replicate freshness or independent error processes. Preserve each seat's criterion-bound judgements and evidence; do not convert them to numbers or average them. Report exact-agreement and disagreement patterns for a dimension only when the matching gold judgement exists.
 
-**Cross-model verification**: In calibration mode, `ARS_CROSS_MODEL` is **default-on** rather than opt-in. At least one of the 5 runs should use a different model family if available, to avoid single-model blind spots. If no cross-model is configured, emit a warning and run all 5 on the primary model.
+**Directional tier.** Run one panel per paper with distinct recorded invocation-context IDs among its five seats. Preserve the exact panel verdict and each scoring seat's categorical dimension judgements as emitted. Do not ensemble, manufacture variance, combine labels into a panel score, or rank the papers.
 
-### Phase 2: Build the confusion matrix
+**Cross-model verification and actual provenance.** `ARS_CROSS_MODEL` is
+default-on for calibration mode. Follow
+`shared/cross_model_verification.md` § Calibration transport exception. Before
+any provider call, run its closed calibration data-fence collision preflight
+independently on the raw reviewer-configuration bytes and raw manuscript bytes.
+A collision refuses the entire attempt before transport: do not send either
+payload and do not escape, strip, rewrite, truncate, switch delimiters, or
+silently fall back.
 
-Compare reviewer's majority-vote decision against the user's ground-truth label.
+Create an `attempt_id`, lock one `substrate_plan` before any gold material is
+consulted, and use the same transport and substrate for every paper and
+replicate. For every completed panel, build and replay-validate
+`review-panel-provenance/1.0` from actual seat executions. All result-producing
+panels in one calibration attempt MUST have one identical
+`execution_topology_sha256`; every artifact must derive `fresh_context: true`
+under its fixed `within_panel_attempt_only` scope. The builder receives no
+attempt-history ledger: even if invocation-context IDs differ within each
+artifact, it cannot detect reuse across papers or replicates. Every candidate
+profile and readout must disclose that cross-replicate freshness is unverified
+and must not describe the repeated panels as independent. If consent, configuration, or
+non-content transport preflight is unavailable before the attempt begins, lock
+all seats to the primary family and execute the complete schedule on that
+homogeneous plan.
 
-- `borderline` ground truth papers are excluded from the binary confusion matrix but reported separately (see Phase 3).
-- Map `Accept` and `Minor Revision` reviewer decisions 鈫?positive. Map `Major Revision` and `Reject` 鈫?negative. This follows Lu 2026 Table 1's binarization.
+A mid-attempt dispatch or substrate failure, topology mismatch, unknown
+required provenance observation, within-panel context reuse, or invalid provenance
+artifact invalidates the whole attempt. Every completed panel becomes
+diagnostic-only and must not enter any aggregate. The only result-producing
+retry uses a new `attempt_id`, an empty aggregate, and restarts at paper 1 /
+replicate 1 on one homogeneous plan. Never resume the failed attempt, mix
+transports or substrates, or emit a profile or directional readout from an
+incomplete, mixed-substrate, mixed-topology, or provenance-unresolved attempt.
 
-Compute:
+### Phase 2: Full-tier decision-error profile
 
-| Metric | Formula | Report with |
+Map adjudicated and panel verdicts as follows: Accept/Minor Revision are the acceptable side; Major Revision/Reject are the reject side. With positive meaning acceptable:
+
+| Metric | Meaning | Reporting boundary |
 |---|---|---|
-| Balanced accuracy | (TPR + TNR) / 2 | 95% CI via bootstrap (1000 resamples) |
-| FNR (miss rate) | FN / (FN + TP) | Same |
-| FPR (false alarm) | FP / (FP + TN) | Same |
-| AUC | ROC over rubric-score threshold | Same |
-| Calibration error | Mean &#124;rubric_score - ground_truth_severity&#124; | Per-dimension |
+| Balanced accuracy | Mean of sensitivity on the two sides | Point estimate plus bootstrap interval |
+| FNR | Acceptable-side papers judged Major/Reject (over-harsh) | Point estimate plus bootstrap interval |
+| FPR | Reject-side papers judged Accept/Minor (too lenient) | Point estimate plus bootstrap interval |
+| Exact four-label agreement | Exact verdict matches | Count and share, with target-set size |
 
-### Phase 3: Borderline handling
+Do not report AUC: there is no continuous rubric score. Do not infer an ordinal paper ranking from the four editorial labels.
 
-Borderline papers don't enter the binary matrix but are useful for rubric-score calibration. For each borderline paper, report:
-- The reviewer's rubric score
-- The reviewer's decision
-- Whether the reviewer's decision respects the user's "this is borderline" signal (i.e., did it correctly land in Major Revision rather than confidently Accept or Reject?)
+For each dimension with adjudicated gold judgements, report a categorical agreement table and `annotated_n=<n>/<N>, missing=<N-n>`. With no annotated gold for a dimension, report `NOT COMPUTABLE`. Do not assign distances between categories, average the labels, or claim a gold-set-wide dimension result from a subset.
 
-A reviewer that confidently Accepts or Rejects borderline papers has a "confidence miscalibration" problem even if its binary accuracy looks fine.
+### Phase 2.5: Minor/Major boundary (both tiers)
 
-### Phase 4: Produce the Calibration Report
+When both `minor_revision` and `major_revision` gold examples exist, report raw counts:
 
-Output document structured as:
+| Gold \ predicted side | Accept + Minor | Major + Reject |
+|---|---:|---:|
+| Minor Revision | stayed minor-side | harsh crossing |
+| Major Revision | lenient crossing | stayed major-side |
 
+If either side is absent in a full-tier target set, report `NOT ESTIMABLE — target set lacks both sides of the Minor/Major boundary`. Never render an all-zero table as evidence of no confusion.
+
+### Phase 2.6: Directional reporting boundary
+
+The directional readout may report only:
+
+- each paper's exact gold verdict, exact panel verdict, per-seat categorical criterion judgements, and `lenient` / `exact` / `harsh` direction;
+- raw direction counts;
+- the raw Minor/Major boundary cells; and
+- raw low/med/high severity-grounding-risk counts from Phase 3.5.
+
+It must not report balanced accuracy, FNR, FPR, AUC, confidence intervals, stability, per-dimension error rates, numeric baseline comparisons, or any measured-profile claim.
+
+### Phase 3.5: Severity-miscalibration measurement (#215)
+
+Decision-level error does not capture findings whose severity relies on an asserted field norm. Classify the grounding risk of each emitted weakness:
+
+- **`high`**: severity depends on a field norm or core-result boundary, but the reviewer supplied no applicable external grounding;
+- **`med`**: the reviewer named a possible standard but did not establish its applicability;
+- **`low`**: severity does not depend on a field norm, or the applicable norm is externally grounded.
+
+The classifier evaluates whether grounding was supplied, not whether its own model knowledge says the norm is correct. It **MUST NOT** guess norm-correctness from model memory. Measurement labels must be adjudicated against the separately maintained `evals/gold/field_norm_severity` asset; the pointer is an anti-circularity boundary, not permission to expose gold material to a review run. Full tier reports counts and target-set-local shares; directional tier reports raw counts only. This is separate from FNR/FPR and does not create a quality score.
+
+### Phase 4: Outputs
+
+The full-tier report uses this structure:
+
+```text
+# Empirical Target Profile for <Reviewer Instance>
+calibration_status: PROFILE_MEASURED
+application_status: NOT_WIRED_TO_LIVE_REVIEW
+profile_id: <id>
+target_match: <domain; article type; venue criteria/version; rubric version;
+               review mode; execution_topology_sha256>
+calibration_panel_provenance: <ordered normalized_manifest_sha256 values for
+                               every replay-valid measurement panel>
+Gold set: n=<N>
+Runs per paper: <3|5>
+Cross-model: <yes/no; configuration and fallback disclosure>
+
+## Decision-error metrics
+- Balanced accuracy: <estimate and interval>
+- FNR (over-harsh): <estimate and interval>
+- FPR (too lenient): <estimate and interval>
+- Exact four-label agreement: <count>/<N>
+
+## Per-dimension categorical agreement
+| Dimension | Agreement/confusion counts | annotated_n | missing |
+| ... |
+
+## Minor/Major boundary
+<raw cells or NOT ESTIMABLE with reason>
+
+## Severity-grounding risk
+<low/med/high counts and target-set-local shares>
+
+## Scope and transport warning
+This is a measured profile on the identified target set and exact execution
+topology, not universal calibration. A mismatch in any target-match field restores NOT_CALIBRATED. The current run's replay-derived
+execution_topology_sha256 is one such field and must match exactly.
 ```
-# Calibration Report for <Reviewer Instance>
-Domain: <domain>
-Gold set: n=<N> (accept=<a>, reject=<r>, borderline=<b>)
-Runs per paper: 5 (ensembled)
-Cross-model: <yes/no, model families used>
 
-## Summary metrics
-- Balanced accuracy: 0.XX [95% CI: 0.XX - 0.XX]
-- FNR: 0.XX [95% CI ...]
-- FPR: 0.XX [95% CI ...]
-- AUC: 0.XX
-- Ensemble stability: <mean std of rubric scores across runs>
+The directional report uses this structure:
 
-## Comparison to Lu 2026 Table 1 baselines
-| Metric | This reviewer | Lu 2026 Automated Reviewer | Lu 2026 Human |
-|---|---|---|---|
-| Balanced accuracy | X | 0.65 | 0.67-0.73 |
-| FNR | X | 0.17 | 0.52 |
-| FPR | X | 0.50 | 0.17-0.34 |
+```text
+# Directional Calibration Readout for <Reviewer Instance>
+calibration_status: NOT_CALIBRATED
+Tier: directional
+Gold set: n=3
+Runs per paper: 1
 
-(Note: Lu 2026 numbers are for ML venues specifically. Compare with caution outside ML.)
+| Paper | Gold verdict | Panel verdict | Per-seat categorical judgements | Direction |
+| ... |
 
-## Per-dimension calibration error
-<table of 7 review dimensions with mean absolute calibration error>
+<raw direction counts>
+<raw Minor/Major boundary cells>
+<raw severity-grounding-risk counts>
 
-## Systematic biases detected
-<natural-language narrative identifying patterns, e.g.
- "Reviewer tends to over-score originality on cross-disciplinary papers"
- "Reviewer under-scores qualitative methodology by ~8 points vs ground truth"
->
-
-## Recommendations for session use
-- Treat this reviewer's rubric scores as having calibration error 卤X points
-- For accept/reject decisions, the reviewer misses X% of reject cases (FNR)
-- For decisions near the accept/reject boundary, escalate to human judgement
+Interpretation: directional observations only; no error profile, calibration,
+stability, score, ranking, or transport claim is available.
 ```
 
-### Phase 5: Session attachment
+### Phase 5: Session disclosure
 
-If session persistence is enabled, the Calibration Report is attached to every subsequent review in the same session as a **confidence disclosure header**. The disclosure appears in the editorial letter before the verdict:
+A subsequent live review currently begins with this header, including after a
+directional or full-tier measurement run:
 
+```text
+> calibration_status: NOT_CALIBRATED
+> application_status: NOT_WIRED_TO_LIVE_REVIEW
+> Live profile application is not implemented in the current release; a
+> candidate profile, profile identifier, or apparent target/topology match
+> cannot upgrade this live review.
+> Criterion judgements are evidence-anchored but have no measured error profile.
 ```
-> **Reviewer Confidence Disclosure (from calibration session <id>):**
-> This reviewer has measured balanced accuracy 0.XX, FNR 0.XX, FPR 0.XX on a
-> gold set of <N> papers in <domain>. Rubric scores below have calibration
-> error 卤X points. Treat borderline decisions with human judgement.
+
+The following is a **future application example only** and is not emitted by
+the current Schema 6 adapter:
+
+```text
+> calibration_status: PROFILE_MEASURED
+> profile_id: <id>
+> profile_artifact_sha256: <raw profile digest>
+> execution_topology_sha256: <profile digest, exactly equal to current replay-derived digest>
+> Decision errors were measured on <N> adjudicated papers matching <target>.
+> This bounded profile is not universal calibration; any target mismatch restores
+> NOT_CALIBRATED. See the attached uncertainty intervals and coverage counts.
 ```
 
-This is non-negotiable in calibration-enabled sessions: the user cannot hide the disclosure. The point of calibration is to make error profiles legible; suppressing the disclosure defeats the mode.
+The current disclosure cannot be hidden or upgraded. Full-tier measurement may
+produce a candidate profile, but a candidate cannot be applied to a live review
+until the closed profile schema and exact-match replay validator exist. A later
+directional result never replaces a full-tier candidate; neither may be reused
+outside its target identity.
 
----
+## Ensembling and interpretation notes
 
-## Ensembling methodology notes
-
-Lu 2026 Methods A.1.1 describes reviewer ensembling across 5 independent runs with majority voting. This mode follows that spec with two changes:
-
-1. **Median instead of mean for rubric scores**: mean is vulnerable to single-run outliers (e.g., a run that hallucinates a methodological flaw); median is robust.
-2. **Fresh context per run**: Lu 2026 allowed within-session memory across runs. ARS uses fresh context to prevent cascading errors from a single run's misreading.
-
-Users with token budget concerns can reduce `runs_per_paper` to 3. Below 3, ensembling is meaningless 鈥?do not allow 1 or 2.
-
----
-
-## Failure cases this mode does NOT fix
-
-Calibration reports this reviewer's error profile on a **specific** gold set in a **specific** domain. It does not:
-
-- Predict performance on papers outside that domain
-- Detect frame-lock within a single paper review (that's `devils_advocate_reviewer` territory)
-- Catch implementation-bug-as-finding cases (that's the AI Research Failure Mode Checklist, ROADMAP_v3.2.md item 2)
-- Replace the `re-review` mode for revision verification
-
-If the user's gold set is itself biased (e.g., all papers from one lab, all from one year), calibration reports a biased profile. Emit a warning during intake if papers share obvious metadata clusters.
-
----
+- Full-tier repeats require within-panel context separation and use majority voting for the final categorical verdict. Cross-replicate context freshness is not mechanically verified, so reports label that limitation and never infer independent repeated error processes. Per-dimension categorical agreement is reported as counts, not averaged labels.
+- Directional tier is an explicit one-run exception and cannot report stability.
+- Same-family evaluation can understate error. Cross-model evaluation provides stronger evidence when consented and available, but does not prove evaluator independence or correctness.
+- External studies can motivate hypotheses about leniency or harshness, but their numeric gaps must not be imported as correction factors, thresholds, or target-profile measurements.
+- Neither tier predicts performance outside its target identity, detects every within-paper framing failure, or replaces human editorial judgement.
 
 ## Integration with existing modes
 
-| Existing mode | Interaction with calibration |
+| Mode | Interaction |
 |---|---|
-| `full` | Calibration runs `full` 5x per gold paper. No change to `full` itself. |
-| `re-review` | Calibration profile attaches to re-review decisions. |
-| `quick` | Calibration profile attaches. Confidence disclosure notes that `quick` has additional uncalibrated error on top of the measured profile. |
-| `methodology-focus` | Calibration should ideally be run with methodology-heavy gold papers if this mode is the user's target. |
-| `guided` | Not applicable 鈥?guided mode is Socratic dialogue, rubric scores are not the primary output. |
-
----
-
-## Resolved design decisions (2026-04-09)
-
-- **Activation**: opt-in only. User invokes `calibration` mode explicitly. ARS does not auto-calibrate on first use in a new domain.
-- **Persistence**: session-scoped only. No cross-session caching of profiles, no `~/.ars_calibration_cache/`, no privacy questions about storing paper content on disk.
-- **Shipped gold sets**: not planned for v3.2. Users bring their own gold set. Shipping a built-in ML gold set was considered and rejected to avoid domain-coverage bias and staleness.
-- **Continuous/self-calibration**: rejected. Using the reviewer's own historical decisions as pseudo-ground-truth is circular and would make the error profile look better over time without actually improving accuracy.
-
----
+| `full` | Ordinary full review remains criterion-bound and defaults to `NOT_CALIBRATED`; calibration runs a separate measurement workflow. |
+| `re-review` | Emit `NOT_CALIBRATED`; re-review decision rules remain unchanged. |
+| `quick` | Emit `NOT_CALIBRATED` and state that reduced scope has no measured live error profile. |
+| `methodology-focus` | Emit `NOT_CALIBRATED`; candidate profile application is not wired. |
+| `guided` | No calibration profile is inferred from dialogue. |
 
 ## References
 
-- Lu, C. et al. (2026). Towards end-to-end automation of AI research. *Nature* 651, 914-919. doi:10.1038/s41586-026-10265-5 鈥?Table 1 (reviewer validation), Methods A.1.1 (ensembling).
-- Efron, B. & Tibshirani, R. J. (1993). *An Introduction to the Bootstrap*. Chapman & Hall/CRC 鈥?bootstrap CI methodology.
-- ARS `shared/cross_model_verification.md` 鈥?cross-model reviewer integration.
-- ARS `academic-paper-reviewer/references/quality_rubrics.md` 鈥?scoring rubric definitions.
-
-## v3.6.2 sprint contract status
-
-v3.6.2 introduces sprint contracts for `reviewer_full` and `reviewer_methodology_focus` only. A template for this mode will follow in a subsequent patch release. Until then, this mode runs without contract enforcement and retains its pre-v3.6.2 behaviour.
+- Lu, C. et al. (2026). Towards end-to-end automation of AI research. *Nature* 651, 914–919. Decision-level validation motivates reporting explicit class conventions and error profiles; its numeric results are not ARS thresholds.
+- Ren et al. (2026). Evaluator-independence and verifiable-subset guidance. Target-set comparison is bounded evidence, not universal calibration.
+- `shared/cross_model_verification.md` — calibration transport and consent rules.
+- `quality_rubrics.md` — criterion-bound judgement contract.

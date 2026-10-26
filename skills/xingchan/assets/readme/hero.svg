@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 340" width="1240" height="340">
+  <defs>
+    <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#000000"/>
+    </marker>
+  </defs>
+
+  <!-- background -->
+  <rect x="0" y="0" width="1240" height="340" rx="18" fill="#ffffff" stroke="#d9dde6" stroke-width="1"/>
+
+  <!-- title block -->
+  <text x="76" y="124" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="58" fill="#111111" letter-spacing="4">星躔</text>
+  <text x="234" y="118" font-family="'Times New Roman',Arial,sans-serif" font-size="34" fill="#2456A6" letter-spacing="1">StellarTrack</text>
+  <text x="78" y="172" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="23" fill="#222222">一条带闸门的写作流水线：AI 出力，你放行。</text>
+  <text x="78" y="206" font-family="FangSong,'STFangsong','FangSong_GB2312','SimSun',serif" font-size="17" font-weight="bold" fill="#555555">跨场景写作管线 · 六种文体，同一条流水线</text>
+
+  <!-- pipeline strip -->
+  <rect x="117" y="238" width="150" height="62" rx="10" fill="#ffffff" stroke="#000000" stroke-width="1.6"/>
+  <text x="192" y="276" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="21" fill="#111111"><tspan fill="#2456A6">O</tspan> 定向</text>
+
+  <line x1="269" y1="269" x2="311" y2="269" stroke="#000000" stroke-width="1.6" marker-end="url(#arw)"/>
+  <circle cx="290" cy="269" r="12" fill="#2456A6"/>
+  <text x="290" y="274" text-anchor="middle" font-size="13" fill="#ffffff">①</text>
+
+  <rect x="315" y="238" width="150" height="62" rx="10" fill="#ffffff" stroke="#000000" stroke-width="1.6"/>
+  <text x="390" y="276" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="21" fill="#111111"><tspan fill="#2456A6">S</tspan> 运思</text>
+
+  <line x1="467" y1="269" x2="509" y2="269" stroke="#000000" stroke-width="1.6" marker-end="url(#arw)"/>
+  <circle cx="488" cy="269" r="12" fill="#2456A6"/>
+  <text x="488" y="274" text-anchor="middle" font-size="13" fill="#ffffff">②</text>
+
+  <rect x="513" y="238" width="240" height="62" rx="10" fill="#ffffff" stroke="#000000" stroke-width="1.6"/>
+  <text x="633" y="264" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="21" fill="#111111"><tspan fill="#2456A6">C</tspan> 建构</text>
+  <text x="633" y="288" text-anchor="middle" font-family="FangSong,'STFangsong','FangSong_GB2312','SimSun',serif" font-size="14" font-weight="bold" fill="#444444">C1–C11 · 内含③–⑫号闸</text>
+
+  <line x1="755" y1="269" x2="797" y2="269" stroke="#000000" stroke-width="1.6" marker-end="url(#arw)"/>
+  <circle cx="776" cy="269" r="12" fill="#2456A6"/>
+  <text x="776" y="274" text-anchor="middle" font-size="13" fill="#ffffff">⑬</text>
+
+  <rect x="801" y="238" width="150" height="62" rx="10" fill="#ffffff" stroke="#000000" stroke-width="1.6"/>
+  <text x="876" y="276" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="21" fill="#111111"><tspan fill="#2456A6">E</tspan> 沉淀</text>
+
+  <line x1="953" y1="269" x2="995" y2="269" stroke="#000000" stroke-width="1.6" marker-end="url(#arw)"/>
+
+  <rect x="999" y="238" width="140" height="62" rx="31" fill="#f4f6fa" stroke="#000000" stroke-width="1.6"/>
+  <text x="1069" y="276" text-anchor="middle" font-family="SimHei,'Heiti SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="20" fill="#111111">合卷交付</text>
+
+  <text x="1160" y="328" text-anchor="end" font-family="FangSong,'STFangsong','FangSong_GB2312','SimSun',serif" font-size="15" font-weight="bold" fill="#666666">十三道验收闸全程编号留痕 · 不过即挂起，等你放行</text>
+</svg>

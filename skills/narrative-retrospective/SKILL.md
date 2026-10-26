@@ -1,13 +1,21 @@
 ---
 name: dragoncraft-review
-description: 雕龙·复盘 | DragonCraft Review - ［何时使用］当需要将项目经历/失败教训/成功经验变成有逻辑、有冲突、有认知、有价值的复盘叙事时；当需要复盘会口述稿、书面复盘故事、反事实清单时
+description: 雕龙·复盘 | DragonCraft Review -
+  ［何时使用］当需要将项目经历/失败教训/成功经验变成有逻辑、有冲突、有认知、有价值的复盘叙事时；当需要复盘会口述稿、书面复盘故事、反事实清单时
 author: ant (CEO 助理)
 created: 2026-04-30
 version: 1.1.0
 skill_type: 通用🟡
-allowed-tools: [Bash, Read, Write, Exec]
-tags: [dragoncraft, dragoncraft-review, narrative, storytelling]
-disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Exec
+tags:
+  - dragoncraft
+  - dragoncraft-review
+  - narrative
+  - storytelling
 ---
 
 # 雕龙·复盘 (DragonCraft Review)

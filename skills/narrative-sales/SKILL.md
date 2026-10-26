@@ -1,13 +1,21 @@
 ---
 name: dragoncraft-persuade
-description: 雕龙·说服 | DragonCraft Persuade - ［何时使用］当需要将客户痛点/购买障碍/成功案例变成有逻辑、有冲突、有认知、有价值的销售故事时；当需要客户案例、销售话术、异议处理、销售培训时
+description: 雕龙·说服 | DragonCraft Persuade -
+  ［何时使用］当需要将客户痛点/购买障碍/成功案例变成有逻辑、有冲突、有认知、有价值的销售故事时；当需要客户案例、销售话术、异议处理、销售培训时
 author: ant (CEO 助理)
 created: 2026-04-30
 version: 1.1.0
 skill_type: 通用🟡
-allowed-tools: [Bash, Read, Write, Exec]
-tags: [dragoncraft, dragoncraft-persuade, narrative, storytelling]
-disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Exec
+tags:
+  - dragoncraft
+  - dragoncraft-persuade
+  - narrative
+  - storytelling
 ---
 
 # 雕龙·说服 (DragonCraft Persuade)

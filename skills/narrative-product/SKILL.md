@@ -1,13 +1,21 @@
 ---
 name: dragoncraft-create
-description: 雕龙·造物 | DragonCraft Create - ［何时使用］当需要将产品定位/用户痛点/解决方案变成有逻辑、有冲突、有认知、有价值的产品故事时；当需要产品发布文案、用户故事、竞品对比、产品手册时
+description: 雕龙·造物 | DragonCraft Create -
+  ［何时使用］当需要将产品定位/用户痛点/解决方案变成有逻辑、有冲突、有认知、有价值的产品故事时；当需要产品发布文案、用户故事、竞品对比、产品手册时
 author: ant (CEO 助理)
 created: 2026-04-30
 version: 1.1.0
 skill_type: 通用🟡
-allowed-tools: [Bash, Read, Write, Exec]
-tags: [dragoncraft, dragoncraft-create, narrative, storytelling]
-disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Exec
+tags:
+  - dragoncraft
+  - dragoncraft-create
+  - narrative
+  - storytelling
 ---
 
 # 雕龙·造物 (DragonCraft Create)

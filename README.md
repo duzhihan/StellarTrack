@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"/></a>
-  <img src="https://img.shields.io/badge/version-v12.6.14-blue.svg" alt="version"/>
+  <img src="https://img.shields.io/badge/version-v12.5.21-blue.svg" alt="version"/>
   <img src="https://img.shields.io/badge/Agent%20Skill-Claude%20Code%20%7C%20WorkBuddy-2f6feb.svg" alt="Agent Skill"/>
   <img src="https://img.shields.io/badge/lang-English%20%7C%20%E4%B8%AD%E6%96%87-informational.svg" alt="lang"/>
 </p>
@@ -131,3 +131,4 @@ Because most Word formatting is wasted effort. Ask explicitly and it will conver
 ## License
 
 MIT — commercial use, modification, and redistribution permitted. Per-item provenance and licensing: see [NOTICE.md](NOTICE.md).
+- Some binary assets (images, Office docs, PDFs, fonts) are not bundled because the platform restricts bundled file types — see `MISSING-ASSETS.md` for the full list and why nothing functional is blocked.

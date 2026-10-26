@@ -1,13 +1,21 @@
 ---
 name: dragoncraft-soul
-description: 雕龙·铸魂 | DragonCraft Soul - ［何时使用］当需要将品牌起源/使命/价值观变成有逻辑、有冲突、有认知、有价值的品牌故事时；当需要打造品牌形象、进行品牌宣言、创作品牌手册、创始人故事时
+description: 雕龙·铸魂 | DragonCraft Soul -
+  ［何时使用］当需要将品牌起源/使命/价值观变成有逻辑、有冲突、有认知、有价值的品牌故事时；当需要打造品牌形象、进行品牌宣言、创作品牌手册、创始人故事时
 author: ant (CEO 助理)
 created: 2026-04-30
 version: 1.1.0
 skill_type: 通用🟡
-allowed-tools: [Bash, Read, Write, Exec]
-tags: [dragoncraft, dragoncraft-soul, narrative, storytelling]
-disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Exec
+tags:
+  - dragoncraft
+  - dragoncraft-soul
+  - narrative
+  - storytelling
 ---
 
 # 雕龙·铸魂 (DragonCraft Soul)

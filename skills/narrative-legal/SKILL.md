@@ -1,13 +1,21 @@
 ---
 name: dragoncraft-reason
-description: 雕龙·明理 | DragonCraft Reason - ［何时使用］当需要将案件事实/争议焦点/法律依据变成有逻辑、有冲突、有认知、有价值的法律叙事时；当需要代理词、辩护词、事实陈述、法律意见书时
+description: 雕龙·明理 | DragonCraft Reason -
+  ［何时使用］当需要将案件事实/争议焦点/法律依据变成有逻辑、有冲突、有认知、有价值的法律叙事时；当需要代理词、辩护词、事实陈述、法律意见书时
 author: ant (CEO 助理)
 created: 2026-04-30
 version: 1.1.0
 skill_type: 通用🟡
-allowed-tools: [Bash, Read, Write, Exec]
-tags: [dragoncraft, dragoncraft-reason, narrative, storytelling]
-disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Exec
+tags:
+  - dragoncraft
+  - dragoncraft-reason
+  - narrative
+  - storytelling
 ---
 
 # 雕龙·明理 (DragonCraft Reason)

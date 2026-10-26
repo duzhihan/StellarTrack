@@ -1,13 +1,21 @@
 ---
 name: dragoncraft-shift
-description: 雕龙·变革 | DragonCraft Shift - ［何时使用］当需要将变革动因/阻力点/目标状态变成有逻辑、有冲突、有认知、有价值的组织变革叙事时；当需要内部信、全员讲话、变革 FAQ、变革路线图时
+description: 雕龙·变革 | DragonCraft Shift -
+  ［何时使用］当需要将变革动因/阻力点/目标状态变成有逻辑、有冲突、有认知、有价值的组织变革叙事时；当需要内部信、全员讲话、变革 FAQ、变革路线图时
 author: ant (CEO 助理)
 created: 2026-04-30
 version: 1.1.0
 skill_type: 通用🟡
-allowed-tools: [Bash, Read, Write, Exec]
-tags: [dragoncraft, dragoncraft-shift, narrative, storytelling]
-disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Exec
+tags:
+  - dragoncraft
+  - dragoncraft-shift
+  - narrative
+  - storytelling
 ---
 
 # 雕龙·变革 (DragonCraft Shift)

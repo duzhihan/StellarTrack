@@ -1,13 +1,21 @@
 ---
 name: dragoncraft-core
-description: 雕龙·心法 | DragonCraft Core - ［何时使用］当需要评估叙事质量、生成叙事骨架、检测AI化程度、推荐叙事人格、进行伦理审查、跨场景一致性检查、记忆检索时
+description: 雕龙·心法 | DragonCraft Core -
+  ［何时使用］当需要评估叙事质量、生成叙事骨架、检测AI化程度、推荐叙事人格、进行伦理审查、跨场景一致性检查、记忆检索时
 author: ant (CEO 助理)
 created: 2026-04-29
 version: 3.1.0
 skill_type: 通用🟡
-allowed-tools: [Bash, Read, Write, Exec]
-tags: [dragoncraft, dragoncraft-core, narrative, storytelling]
-disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Exec
+tags:
+  - dragoncraft
+  - dragoncraft-core
+  - narrative
+  - storytelling
 ---
 
 # 雕龙·心法 (DragonCraft Core)

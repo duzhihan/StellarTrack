@@ -8,5 +8,6 @@
   "preinstalledTemplate": true,
   "skillId": "skill_2053082248175816704",
   "description_zh": "卡兹克风格的公众号长文写作，真诚有温度的AI内容创作",
-  "description_en": "WeChat long-form writing in Khazix's authentic, personal voice"
+  "description_en": "WeChat long-form writing in Khazix's authentic, personal voice",
+  "installedContentHash": "sha256:96b290f71c2bd98dc72bd4415fc1e76c1106bb4608e30d23c9bb5b49feca5fbe"
 }

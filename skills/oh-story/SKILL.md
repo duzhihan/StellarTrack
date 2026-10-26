@@ -5,7 +5,6 @@ description: ［oh-story-claudecode 精简版］来自 worldwonderer/oh-story-cl
   MIT)。仅取4个不冲突模块：story-import(导入续写)、story-deslop(去AI味增强)、story-review(7Agent审查)、story-cover(封面)。不取扫榜/拆文/写作等已由chinese-novelist覆盖的模块。
 source: worldwonderer/oh-story-claudecode (MIT)
 version: 1.0.0-selective
-disable-model-invocation: true
 ---
 
 # oh-story · Selective Integration

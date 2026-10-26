@@ -6,8 +6,112 @@
  */
 
 const https = require('https');
-const cheerio = require('cheerio');
 const zlib = require('zlib');
+
+/**
+ * 说明：本脚本不依赖任何第三方 npm 包（不再使用 cheerio），
+ * 所有 HTML 解析均由下方内置的轻量解析函数完成，
+ * 以保证在内网 / 离线环境下也能直接运行，无需 npm install。
+ */
+
+// ---------------------------------------------------------------------------
+// 内置的零依赖 HTML 解析工具（替代 cheerio，仅覆盖本脚本所需的最小能力）
+// ---------------------------------------------------------------------------
+
+const NAMED_ENTITIES = {
+  ldquo: '\u201c', rdquo: '\u201d', lsquo: '\u2018', rsquo: '\u2019',
+  hellip: '\u2026', mdash: '\u2014', ndash: '\u2013', middot: '\u00b7',
+};
+
+/** 去除 HTML 标签并反转义常见实体，返回纯文本 */
+function htmlToText(html) {
+  if (!html) return '';
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&(ldquo|rdquo|lsquo|rsquo|hellip|mdash|ndash|middot);/g, (_, n) => NAMED_ENTITIES[n])
+    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number(d)))
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * 从一段 HTML 中提取指定标签的所有区块内容（支持同名标签嵌套）。
+ * @param {string} html
+ * @param {string} tag - 如 'li'
+ * @returns {string[]} 每个匹配标签的内部 HTML
+ */
+function extractBlocks(html, tag) {
+  const blocks = [];
+  const openRe = new RegExp(`<${tag}\\b[^>]*>`, 'gi');
+  const openTag = new RegExp(`<${tag}\\b[^>]*>`, 'i');
+  const closeTag = new RegExp(`</${tag}>`, 'i');
+  let m;
+  while ((m = openRe.exec(html)) !== null) {
+    let depth = 1;
+    let idx = openRe.lastIndex;
+    const start = idx;
+    while (depth > 0 && idx < html.length) {
+      const rest = html.slice(idx);
+      const nextOpen = rest.search(openTag);
+      const nextClose = rest.search(closeTag);
+      if (nextClose === -1) break;
+      if (nextOpen !== -1 && nextOpen < nextClose) {
+        depth++;
+        idx += nextOpen + rest.match(openTag)[0].length;
+      } else {
+        depth--;
+        if (depth === 0) {
+          blocks.push(html.slice(start, idx + nextClose));
+          idx += nextClose + rest.match(closeTag)[0].length;
+          openRe.lastIndex = idx;
+          break;
+        }
+        idx += nextClose + rest.match(closeTag)[0].length;
+      }
+    }
+  }
+  return blocks;
+}
+
+/**
+ * 提取带指定 class 的第一个元素的内部 HTML（用于 p.txt-info / .s-p / .s2 等）。
+ * tag 传 '*' 时对任意标签名匹配（class 可能挂在 span 或 div 上）。
+ */
+function extractByClass(html, tag, className) {
+  const tagPat = tag === '*' ? '[a-zA-Z][a-zA-Z0-9]*' : tag;
+  const re = new RegExp(`<(${tagPat})\\b[^>]*class=["'][^"']*\\b${className}\\b[^"']*["'][^>]*>`, 'i');
+  const m = re.exec(html);
+  if (!m) return null;
+  const matchedTag = m[1];
+  // 简单闭合匹配（本页面结构层级浅，取到对应 close 标签）
+  const blocks = extractBlocks(html.slice(m.index), matchedTag);
+  return blocks.length > 0 ? blocks[0] : html.slice(m.index + m[0].length);
+}
+
+/** 提取 <a> 的 href 与文本（取第一个 a） */
+function extractFirstAnchor(html) {
+  const m = /<a\b[^>]*href=["']([^"']*)["'][^>]*>([\s\S]*?)<\/a>/i.exec(html);
+  if (!m) return null;
+  return { href: m[1], text: htmlToText(m[2]) };
+}
+
+/** 提取所有 <script> 标签内的文本 */
+function extractScriptText(html) {
+  let text = '';
+  for (const m of html.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/gi)) {
+    text += m[1] + '\n';
+  }
+  return text;
+}
 
 // 可配置 User-Agent 池（固定 20 个），每次请求随机选一个，避免固定 UA
 const USER_AGENTS = [
@@ -225,18 +329,19 @@ async function httpGet(url, cookieStr = '') {
  */
 function parseArticlesFromSearchHtml(html, maxResults) {
   const articles = [];
-  const $ = cheerio.load(html);
 
-  const $newsList = $('ul.news-list');
-  if ($newsList.length === 0) return [];
+  // 定位 ul.news-list 区块
+  const newsListHtml = extractByClass(html, 'ul', 'news-list');
+  if (!newsListHtml) return [];
 
-  $newsList.find('li').each((_, element) => {
-    if (articles.length >= maxResults) return false;
-    const article = parseArticle($, element);
+  const liBlocks = extractBlocks(newsListHtml, 'li');
+  for (const liHtml of liBlocks) {
+    if (articles.length >= maxResults) break;
+    const article = parseArticle(liHtml);
     if (article) {
       articles.push(article);
     }
-  });
+  }
 
   return articles;
 }
@@ -364,6 +469,7 @@ function parseCliArgs(args) {
   let num = 10;
   let output = '';
   let resolveRealUrl = false;
+  let days = 0; // 客户端按 datetime 二次过滤的时间窗（天），0 表示不过滤
 
   for (let i = 0; i < args.length; i++) {
     if (args[i] === '-n' || args[i] === '--num') {
@@ -372,6 +478,9 @@ function parseCliArgs(args) {
     } else if (args[i] === '-o' || args[i] === '--output') {
       output = args[i + 1] || '';
       i++;
+    } else if (args[i] === '-d' || args[i] === '--days') {
+      days = parseInt(args[i + 1]) || 0;
+      i++;
     } else if (args[i] === '-r' || args[i] === '--resolve-url') {
       resolveRealUrl = true;
     } else if (!args[i].startsWith('-')) {
@@ -379,7 +488,28 @@ function parseCliArgs(args) {
     }
   }
 
-  return { query, num, output, resolveRealUrl };
+  return { query, num, output, resolveRealUrl, days };
+}
+
+/**
+ * 按 datetime 字段做客户端二次时间过滤（服务端无可用时间筛选）。
+ * @param {Array} articles
+ * @param {number} days - 保留最近 N 天内、有可解析 datetime 的文章；0 表示不过滤
+ * @returns {{kept: Array, dropped: number, undated: number}}
+ */
+function filterByDays(articles, days) {
+  if (!days || days <= 0) return { kept: articles, dropped: 0, undated: 0 };
+  const cutoff = Date.now() - days * 24 * 60 * 60 * 1000;
+  const kept = [];
+  let dropped = 0;
+  let undated = 0;
+  for (const a of articles) {
+    if (!a.datetime) { undated++; continue; }
+    const t = new Date(a.datetime.replace(' ', 'T')).getTime();
+    if (isNaN(t)) { undated++; continue; }
+    if (t >= cutoff) kept.push(a); else dropped++;
+  }
+  return { kept, dropped, undated };
 }
 
 /**
@@ -503,100 +633,82 @@ function formatChinaDateTime(date) {
 
 /**
  * 解析单篇文章
- * @param {Object} $ - cheerio实例
- * @param {Object} element - 文章DOM元素
+ * @param {string} liHtml - 单个 <li> 的内部 HTML
  * @returns {Object|null} 文章数据对象
  */
-function parseArticle($, element) {
+function parseArticle(liHtml) {
   try {
-    const $elem = $(element);
-    
-    // 获取标题和URL
-    const $titleLink = $elem.find('h3 a');
-    if ($titleLink.length === 0) return null;
-    
-    const title = $titleLink.text().trim();
-    let url = $titleLink.attr('href') || '';
-    
+    // 获取标题和URL（h3 内的第一个 a）
+    const h3Html = extractBlocks(liHtml, 'h3')[0] || '';
+    const titleAnchor = extractFirstAnchor(h3Html || liHtml);
+    if (!titleAnchor || !titleAnchor.text) return null;
+
+    const title = titleAnchor.text;
+    let url = titleAnchor.href || '';
+
     // 处理相对URL
     if (url.startsWith('/')) {
       url = `https://weixin.sogou.com${url}`;
     }
-    
-    // 获取概要
-    const summary = $elem.find('p.txt-info').text().trim();
-    
+
+    // 获取概要（p.txt-info）
+    const txtInfoHtml = extractByClass(liHtml, 'p', 'txt-info');
+    const summary = txtInfoHtml ? htmlToText(txtInfoHtml) : '';
+
     // 获取日期和来源
     let datetime = '';
     let dateText = '';
     let source = '';
     let timeDescription = ''; // 原始时间文字描述（如"2小时前"）
-    
-    const $sourceBox = $elem.find('.s-p');
-    if ($sourceBox.length > 0) {
-      // 获取日期 - 优先从script标签获取时间戳
-      const $dateScript = $sourceBox.find('.s2 script');
-      if ($dateScript.length > 0) {
-        const scriptText = $dateScript.text();
-        const timestampMatch = scriptText.match(/(\d{10})/);
-        if (timestampMatch) {
-          const timestamp = parseInt(timestampMatch[1]) * 1000;
-          const date = new Date(timestamp);
-          datetime = formatChinaDateTime(date);
-          dateText = `${date.getFullYear()}年${String(date.getMonth() + 1).padStart(2, '0')}月${String(date.getDate()).padStart(2, '0')}日`;
-        }
-      }
-      
-      // 尝试从文本获取时间描述（优先保存原始描述）
-      const $timeElem = $sourceBox.find('.s2');
-      if ($timeElem.length > 0) {
-        // 获取script中的时间戳用于计算
-        const scriptText = $timeElem.find('script').text();
-        const timestampMatch = scriptText.match(/(\d{10})/);
-        
-        if (timestampMatch) {
-          // 如果有时间戳，计算相对时间描述
-          const timestamp = parseInt(timestampMatch[1]) * 1000;
-          const articleDate = new Date(timestamp);
-          const now = new Date();
-          const diffMs = now - articleDate;
-          const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-          const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-          
-          if (diffDays > 0) {
-            timeDescription = `${diffDays}天前`;
-          } else if (diffHours > 0) {
-            timeDescription = `${diffHours}小时前`;
-          } else {
-            const diffMinutes = Math.floor(diffMs / (1000 * 60));
-            if (diffMinutes > 0) {
-              timeDescription = `${diffMinutes}分钟前`;
-            } else {
-              timeDescription = '刚刚';
-            }
-          }
+
+    const sourceBoxHtml = extractByClass(liHtml, '*', 's-p');
+    if (sourceBoxHtml) {
+      // 找不到 .s2 时不取时间（计入 undated），避免从无关 script 误取数字
+      const s2Html = extractByClass(sourceBoxHtml, '*', 's2') || '';
+      const scriptText = extractScriptText(s2Html);
+      const timestampMatch = scriptText.match(/(\d{10})/);
+
+      if (timestampMatch) {
+        const timestamp = parseInt(timestampMatch[1]) * 1000;
+        const date = new Date(timestamp);
+        datetime = formatChinaDateTime(date);
+        dateText = `${date.getFullYear()}年${String(date.getMonth() + 1).padStart(2, '0')}月${String(date.getDate()).padStart(2, '0')}日`;
+
+        // 计算相对时间描述
+        const now = new Date();
+        const diffMs = now - date;
+        const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+        const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+        if (diffDays > 0) {
+          timeDescription = `${diffDays}天前`;
+        } else if (diffHours > 0) {
+          timeDescription = `${diffHours}小时前`;
         } else {
-          // 如果没有时间戳，尝试从文本获取
-          const timeText = $timeElem.clone().children('script').remove().end().text().trim();
-          if (timeText && !datetime) {
-            timeDescription = timeText;
-            const parsedTime = parseRelativeTime(timeText);
-            datetime = parsedTime.datetime;
-            dateText = parsedTime.dateText;
-          }
+          const diffMinutes = Math.floor(diffMs / (1000 * 60));
+          timeDescription = diffMinutes > 0 ? `${diffMinutes}分钟前` : '刚刚';
+        }
+      } else {
+        // 无时间戳，尝试从纯文本获取
+        const timeText = htmlToText(s2Html);
+        if (timeText) {
+          timeDescription = timeText;
+          const parsedTime = parseRelativeTime(timeText);
+          datetime = parsedTime.datetime;
+          dateText = parsedTime.dateText;
         }
       }
-      
-      // 获取来源公众号名称 - 从 .all-time-y2 或 a.account 获取
-      const $sourceSpan = $sourceBox.find('.all-time-y2');
-      const $sourceLink = $sourceBox.find('a.account');
-      if ($sourceSpan.length > 0) {
-        source = $sourceSpan.text().trim();
-      } else if ($sourceLink.length > 0) {
-        source = $sourceLink.text().trim();
+
+      // 获取来源公众号名称 - 优先 .all-time-y2，其次 a.account
+      const sourceSpanHtml = extractByClass(sourceBoxHtml, '*', 'all-time-y2');
+      if (sourceSpanHtml) {
+        source = htmlToText(sourceSpanHtml);
+      } else {
+        const accountRe = /<a\b[^>]*class=["'][^"']*\baccount\b[^"']*["'][^>]*>([\s\S]*?)<\/a>/i;
+        const am = accountRe.exec(sourceBoxHtml);
+        if (am) source = htmlToText(am[1]);
       }
     }
-    
+
     return {
       title,
       url,
@@ -618,15 +730,18 @@ function parseArticle($, element) {
  * @param {number} maxResults - 最大返回结果数（默认10，最大50）
  * @returns {Promise<Array>} 文章列表
  */
-async function searchWechatArticles(query, maxResults = 10, resolveRealUrl = false) {
+async function searchWechatArticles(query, maxResults = 10, resolveRealUrl = false, days = 0) {
   // 限制最大结果数
   maxResults = Math.min(maxResults, 50);
 
+  // 若启用时间窗过滤，多抓几页以补足过滤后的数量（上限 50）
+  const targetRaw = days > 0 ? Math.min(maxResults * 3, 50) : maxResults;
+
   const articles = [];
   let page = 1;
-  const pagesNeeded = Math.ceil(maxResults / 10);
+  const pagesNeeded = Math.ceil(targetRaw / 10);
 
-  while (articles.length < maxResults && page <= pagesNeeded) {
+  while (articles.length < targetRaw && page <= pagesNeeded) {
     try {
       // 先获取cookie
       const { cookieStr } = await getSogouCookie();
@@ -637,16 +752,16 @@ async function searchWechatArticles(query, maxResults = 10, resolveRealUrl = fal
 
       const html = await httpGet(url, cookieStr);
 
-      const remaining = maxResults - articles.length;
+      const remaining = targetRaw - articles.length;
       const parsed = parseArticlesFromSearchHtml(html, remaining);
       if (parsed.length === 0) break;
       articles.push(...parsed);
 
       page++;
 
-      // 添加短暂延迟避免请求过快
+      // 请求间隔（固化的反爬节流，避免连续请求触发限流）
       if (page <= pagesNeeded) {
-        await new Promise(resolve => setTimeout(resolve, 500 + Math.random() * 1000));
+        await new Promise(resolve => setTimeout(resolve, 1200 + Math.random() * 1200));
       }
     } catch (error) {
       console.error(`请求第${page}页失败:`, error.message);
@@ -654,7 +769,18 @@ async function searchWechatArticles(query, maxResults = 10, resolveRealUrl = fal
     }
   }
 
-  const result = articles.slice(0, maxResults);
+  // 客户端按 datetime 二次时间过滤
+  let result = articles;
+  if (days > 0) {
+    const { kept, dropped, undated } = filterByDays(articles, days);
+    console.error(`时间窗过滤(最近${days}天): 抓取${articles.length}条 → 命中${kept.length}条，超窗丢弃${dropped}条，无日期跳过${undated}条`);
+    if (kept.length === 0) {
+      console.error('提示: 时间窗内无匹配文章。数据源按相关度排序、覆盖有限，该关键词近期可能确无收录；请如实告知用户，勿外推。');
+    }
+    result = kept;
+  }
+
+  result = result.slice(0, maxResults);
   
   // 如果需要解析真实URL
   if (resolveRealUrl && result.length > 0) {
@@ -671,23 +797,24 @@ async function searchWechatArticles(query, maxResults = 10, resolveRealUrl = fal
 async function main() {
   const args = process.argv.slice(2);
 
-  const { query, num, output, resolveRealUrl } = parseCliArgs(args);
+  const { query, num, output, resolveRealUrl, days } = parseCliArgs(args);
   
   if (!query) {
     console.log(`
-微信公众号文章搜索工具
+微信公众号文章搜索工具（零第三方依赖，可离线运行）
 
 用法:
   node search_wechat.js <关键词> [选项]
 
 选项:
   -n, --num <数量>       返回结果数量（默认10，最大50）
+  -d, --days <天数>      仅保留最近 N 天内、有可解析发布时间的文章（客户端过滤）
   -o, --output <文件>    输出JSON文件路径
   -r, --resolve-url      解析真实的微信文章URL（会额外请求每个链接）
 
 示例:
   node search_wechat.js "人工智能" -n 20
-  node search_wechat.js "ChatGPT" -n 10 -o result.json
+  node search_wechat.js "ChatGPT" -n 10 -d 365
   node search_wechat.js "人工智能" -n 5 -r
 `);
     process.exit(0);
@@ -696,7 +823,7 @@ async function main() {
   try {
     console.error(`正在搜索: "${query}"...`);
     
-    const articles = await searchWechatArticles(query, num, resolveRealUrl);
+    const articles = await searchWechatArticles(query, num, resolveRealUrl, days);
     
     const result = {
       query,

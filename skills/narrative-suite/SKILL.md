@@ -1,13 +1,22 @@
 ---
 name: dragoncraft-hub
-description: 雕龙·总览 | DragonCraft Hub - ［何时使用］雕龙叙事域内导航与管理。当用户明确要求管理/导航/查询 22 个叙事场景 skill、场景对比、依赖关系图时使用。一般叙事创作请求由能力总调度（narra-orchestrator）路由，不经本 skill。仅限域内自治，不跨域。
+description: 雕龙·总览 | DragonCraft Hub - ［何时使用］雕龙叙事域内导航与管理。当用户明确要求管理/导航/查询 22
+  个叙事场景 skill、场景对比、依赖关系图时使用。一般叙事创作请求由能力总调度（narra-orchestrator）路由，不经本
+  skill。仅限域内自治，不跨域。
 author: ant (CEO 助理)
 created: 2026-04-30
 version: 1.1.1
 skill_type: 核心🔴
-disable-model-invocation: true
-allowed-tools: [Bash, Read, Write, Exec]
-tags: [dragoncraft, dragoncraft-hub, narrative, storytelling]
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Exec
+tags:
+  - dragoncraft
+  - dragoncraft-hub
+  - narrative
+  - storytelling
 ---
 
 # 雕龙·总览 (DragonCraft Hub)

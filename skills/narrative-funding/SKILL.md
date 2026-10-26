@@ -1,13 +1,22 @@
 ---
 name: dragoncraft-quest
-description: 雕龙·问道 | DragonCraft Quest - ［何时使用］当需要将商业模式/市场机会/团队背景变成有逻辑、有冲突、有认知、有价值的融资故事时；当需要 BP 故事线、投资人 pitch、尽调问答、融资路演时
+description: 雕龙·问道 | DragonCraft Quest -
+  ［何时使用］当需要将商业模式/市场机会/团队背景变成有逻辑、有冲突、有认知、有价值的融资故事时；当需要 BP 故事线、投资人
+  pitch、尽调问答、融资路演时
 author: ant (CEO 助理)
 created: 2026-04-30
 version: 1.1.0
 skill_type: 通用🟡
-allowed-tools: [Bash, Read, Write, Exec]
-tags: [dragoncraft, dragoncraft-quest, narrative, storytelling]
-disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Exec
+tags:
+  - dragoncraft
+  - dragoncraft-quest
+  - narrative
+  - storytelling
 ---
 
 # 雕龙·问道 (DragonCraft Quest)

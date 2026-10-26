@@ -1,6 +1,6 @@
-﻿# Top Journals by Field 鈥?Key Academic Discipline Journal Directory
+# Top Journals by Field — Key Academic Discipline Journal Directory
 
-This document is used by `field_analyst_agent` and `eic_agent` as a reference for calibrating EIC identity and assessing journal fit.
+This document is used by `field_analyst_agent` and `eic_agent` as a reference for calibrating the Journal-Fit Reviewer identity and assessing journal fit.
 
 ---
 
@@ -97,7 +97,7 @@ This document is used by `field_analyst_agent` and `eic_agent` as a reference fo
 
 | Journal | Publisher | Impact Factor Range | Typical Review Preferences |
 |---------|----------|-------------------|---------------------------|
-| *Nature Engineering* | Springer Nature | 鈥?| Interdisciplinary engineering breakthroughs |
+| *Nature Engineering* | Springer Nature | — | Interdisciplinary engineering breakthroughs |
 | *Journal of Engineering Education* | ASEE/Wiley | 3-5 | Engineering education research |
 | *IEEE Transactions* (various branches) | IEEE | 5-15 | Technical contributions, experimental validation |
 | *International Journal of Engineering Education* | TEMPUS | 1-3 | International engineering education journal |
@@ -151,7 +151,7 @@ This document is used by `field_analyst_agent` and `eic_agent` as a reference fo
 
 ## Usage Guide
 
-### Logic for Selecting Journals for EIC
+### Logic for Selecting Journals for the Journal-Fit Reviewer
 
 1. **Match the discipline first**: Find the corresponding journal list from the paper's primary discipline
 2. **Then match quality**: Select an appropriate tier of journal based on the paper's quality
@@ -173,14 +173,14 @@ This document is used by `field_analyst_agent` and `eic_agent` as a reference fo
 
 | Journal | Field | ISSN | Notes |
 |---------|-------|------|-------|
-| 鏁欒偛鐮旂┒闆嗗垔 (Bulletin of Educational Research) | Education | 1028-8708 | NTNU; top Taiwan education journal |
-| 楂樼瓑鏁欒偛 (Higher Education) | Higher Education | 1813-3282 | Taiwan HE policy and practice |
-| 瑾茬▼鑸囨暀瀛稿鍒?(Curriculum & Instruction Quarterly) | Curriculum Studies | 1560-1277 | Curriculum design and pedagogy |
-| 鏁欒偛绉戝鐮旂┒鏈熷垔 (Journal of Research in Education Sciences) | Education Sciences | 2073-753X | Broad education research scope |
-| 鐣朵唬鏁欒偛鐮旂┒瀛ｅ垔 (Contemporary Educational Research Quarterly) | Education | 1814-4810 | NTNU; contemporary education issues |
-| 鏁欒偛鏀跨瓥璜栧 (Educational Policy Forum) | Education Policy | 1560-3601 | NCNU; policy analysis |
-| 鏁欒偛蹇冪悊瀛稿牨 (Bulletin of Educational Psychology) | Educational Psychology | 1011-5714 | NTNU; psychological perspectives in education |
-| 娓瀛稿垔 (Psychological Testing) | Psychometrics | 1609-4905 | Assessment and measurement |
+| 教育研究集刊 (Bulletin of Educational Research) | Education | 1028-8708 | NTNU; top Taiwan education journal |
+| 高等教育 (Higher Education) | Higher Education | 1813-3282 | Taiwan HE policy and practice |
+| 課程與教學季刊 (Curriculum & Instruction Quarterly) | Curriculum Studies | 1560-1277 | Curriculum design and pedagogy |
+| 教育科學研究期刊 (Journal of Research in Education Sciences) | Education Sciences | 2073-753X | Broad education research scope |
+| 當代教育研究季刊 (Contemporary Educational Research Quarterly) | Education | 1814-4810 | NTNU; contemporary education issues |
+| 教育政策論壇 (Educational Policy Forum) | Education Policy | 1560-3601 | NCNU; policy analysis |
+| 教育心理學報 (Bulletin of Educational Psychology) | Educational Psychology | 1011-5714 | NTNU; psychological perspectives in education |
+| 測驗學刊 (Psychological Testing) | Psychometrics | 1609-4905 | Assessment and measurement |
 
 ### Asia-Pacific
 

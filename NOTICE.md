@@ -1,10 +1,10 @@
 # NOTICE · 组件来源与许可清单
 
-> 登记口径：自研＝本系统作者原创；第三方＝源自社区/他人项目，按「已声明许可」与「待溯源」两档登记。无许可文件的第三方件默认原作者保留权利，本仓库仅作集成收录；如有侵权请联系删除。
+> 登记口径：自研＝本系统作者原创；第三方＝源自社区/他人项目，按“已声明许可”与“待溯源”两档登记。无许可文件的第三方件默认原作者保留权利，本仓库仅作集成收录；如有侵权请联系删除。
 
 ## 一、自研件（星躔体系原创）
 
-paper-factory（本体）、abstract-checker、claim-audit、reference-check、journal-fit、manuscript-review、research-design、theoretical-framework、title-assessor、literature-review-writer（离朱）、paper-mechanigraph-4ss、duzhihan-paper-editor、nssfc-*（六件）、gongwen-draft、citation-format
+xingchan（本体）、abstract-checker、claim-audit、reference-check、journal-fit、manuscript-review、research-design、theoretical-framework、title-assessor、literature-review-writer（离朱）、paper-mechanigraph-4ss、duzhihan-paper-editor、nssfc-*（六件）、gongwen-draft、citation-format
 
 ## 二、第三方件 · 许可已确认
 
@@ -30,6 +30,7 @@ paper-factory（本体）、abstract-checker、claim-audit、reference-check、j
 | wechat-article-search | 微信文章检索工具 |
 | douyin-copy-extract__skillhub | 抖音文案提取工具 |
 | nsfc-review-guide | 申请书自检指南文档集 |
+| gushi-namer（包装 skill，2026-09-12） | 引用 holynova/gushi_namer（古诗文起名工具，无 LICENSE）——**仅链接引用未复制代码**，仓库 https://github.com/holynova/gushi_namer ｜ Demo https://holynova.github.io/gushi_namer/ |
 
 ## 四、组件形态与安装说明
 

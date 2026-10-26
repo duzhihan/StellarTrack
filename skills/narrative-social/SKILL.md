@@ -1,13 +1,21 @@
 ---
 name: dragoncraft-voice
-description: 雕龙·发声 | DragonCraft Voice - ［何时使用］当需要将平台特性/受众画像/热点趋势/人设定位变成有逻辑、有冲突、有认知、有价值的社交媒体叙事时；当需要爆款文案、话题标签、互动设计、内容规划时
+description: 雕龙·发声 | DragonCraft Voice -
+  ［何时使用］当需要将平台特性/受众画像/热点趋势/人设定位变成有逻辑、有冲突、有认知、有价值的社交媒体叙事时；当需要爆款文案、话题标签、互动设计、内容规划时
 author: ant (CEO 助理)
 created: 2026-04-30
 version: 1.1.0
 skill_type: 通用🟡
-allowed-tools: [Bash, Read, Write, Exec]
-tags: [dragoncraft, dragoncraft-voice, narrative, storytelling]
-disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Exec
+tags:
+  - dragoncraft
+  - dragoncraft-voice
+  - narrative
+  - storytelling
 ---
 
 # 雕龙·发声 (DragonCraft Voice)

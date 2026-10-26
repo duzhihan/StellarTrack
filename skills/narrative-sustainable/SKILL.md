@@ -1,13 +1,21 @@
 ---
 name: dragoncraft-green
-description: 雕龙·长青 | DragonCraft Green - ［何时使用］当需要将环保理念/行动/影响变成有逻辑、有冲突、有认知、有价值的可持续叙事时；当需要可持续报告、行动号召、品牌承诺、ESG 叙事时
+description: 雕龙·长青 | DragonCraft Green -
+  ［何时使用］当需要将环保理念/行动/影响变成有逻辑、有冲突、有认知、有价值的可持续叙事时；当需要可持续报告、行动号召、品牌承诺、ESG 叙事时
 author: ant (CEO 助理)
 created: 2026-04-30
 version: 1.1.0
 skill_type: 通用🟡
-allowed-tools: [Bash, Read, Write, Exec]
-tags: [dragoncraft, dragoncraft-green, narrative, storytelling]
-disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Exec
+tags:
+  - dragoncraft
+  - dragoncraft-green
+  - narrative
+  - storytelling
 ---
 
 # 雕龙·长青 (DragonCraft Green)

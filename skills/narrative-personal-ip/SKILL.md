@@ -1,13 +1,21 @@
 ---
 name: dragoncraft-persona
-description: 雕龙·立人 | DragonCraft Persona - ［何时使用］当需要将个人经历变成有逻辑、有冲突、有认知、有价值的个人故事时；当需要打造个人IP、进行自我介绍、创作公众号文章、短视频口播时
+description: 雕龙·立人 | DragonCraft Persona -
+  ［何时使用］当需要将个人经历变成有逻辑、有冲突、有认知、有价值的个人故事时；当需要打造个人IP、进行自我介绍、创作公众号文章、短视频口播时
 author: ant (CEO 助理)
 created: 2026-04-29
 version: 1.1.0
 skill_type: 通用🟡
-allowed-tools: [Bash, Read, Write, Exec]
-tags: [dragoncraft, dragoncraft-persona, narrative, storytelling]
-disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Exec
+tags:
+  - dragoncraft
+  - dragoncraft-persona
+  - narrative
+  - storytelling
 ---
 
 # 雕龙·立人 (DragonCraft Persona)

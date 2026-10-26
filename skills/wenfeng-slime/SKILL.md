@@ -5,7 +5,6 @@ description: 「文风史莱姆」—
   skill should be used when the user asks to analyze writing style, optimize for
   audience context, transfer style, or diagnose stylistic issues.
 agent_created: true
-disable-model-invocation: true
 ---
 
 # 文风史莱姆 — 像史莱姆一样变形适配任何文风

@@ -1,13 +1,21 @@
 ---
 name: dragoncraft-art
-description: 雕龙·美言 | DragonCraft Art - ［何时使用］当需要将作品/创作理念/观众变成有逻辑、有冲突、有认知、有价值的艺术叙事时；当需要艺术家陈述、展览前言、作品解读、艺术评论时
+description: 雕龙·美言 | DragonCraft Art -
+  ［何时使用］当需要将作品/创作理念/观众变成有逻辑、有冲突、有认知、有价值的艺术叙事时；当需要艺术家陈述、展览前言、作品解读、艺术评论时
 author: ant (CEO 助理)
 created: 2026-04-30
 version: 1.1.0
 skill_type: 通用🟡
-allowed-tools: [Bash, Read, Write, Exec]
-tags: [dragoncraft, dragoncraft-art, narrative, storytelling]
-disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Exec
+tags:
+  - dragoncraft
+  - dragoncraft-art
+  - narrative
+  - storytelling
 ---
 
 # 雕龙·美言 (DragonCraft Art)

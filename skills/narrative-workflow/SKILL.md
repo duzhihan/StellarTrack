@@ -1,13 +1,21 @@
 ---
 name: dragoncraft-studio
-description: 雕龙·工坊 | DragonCraft Studio - ［何时使用］当需要自动化执行叙事生成全流程时；当需要协调元Skill、场景Skill和互动设计Skill的流水线作业时
+description: 雕龙·工坊 | DragonCraft Studio -
+  ［何时使用］当需要自动化执行叙事生成全流程时；当需要协调元Skill、场景Skill和互动设计Skill的流水线作业时
 author: ant (CEO 助理)
 created: 2026-04-29
 version: 1.4.0
 skill_type: 通用🟡
-allowed-tools: [Bash, Read, Write, Exec]
-tags: [dragoncraft, dragoncraft-studio, narrative, storytelling]
-disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Exec
+tags:
+  - dragoncraft
+  - dragoncraft-studio
+  - narrative
+  - storytelling
 ---
 
 # 雕龙·工坊 (DragonCraft Studio)

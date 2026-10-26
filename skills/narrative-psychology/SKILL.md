@@ -1,13 +1,21 @@
 ---
 name: dragoncraft-heal
-description: 雕龙·疗愈 | DragonCraft Heal - ［何时使用］当需要将心理困境/疗愈过程/成长变成有逻辑、有冲突、有认知、有价值的心理叙事时；当需要疗愈故事、心理科普、互助指南、心理咨询脚本时
+description: 雕龙·疗愈 | DragonCraft Heal -
+  ［何时使用］当需要将心理困境/疗愈过程/成长变成有逻辑、有冲突、有认知、有价值的心理叙事时；当需要疗愈故事、心理科普、互助指南、心理咨询脚本时
 author: ant (CEO 助理)
 created: 2026-04-30
 version: 1.1.0
 skill_type: 通用🟡
-allowed-tools: [Bash, Read, Write, Exec]
-tags: [dragoncraft, dragoncraft-heal, narrative, storytelling]
-disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Exec
+tags:
+  - dragoncraft
+  - dragoncraft-heal
+  - narrative
+  - storytelling
 ---
 
 # 雕龙·疗愈 (DragonCraft Heal)

@@ -1,13 +1,21 @@
 ---
 name: dragoncraft-life
-description: 雕龙·生活 | DragonCraft Life - ［何时使用］当需要将生活方式/价值观/美学变成有逻辑、有冲突、有认知、有价值的生活叙事时；当需要生活方式宣言、内容规划、视觉指南、品牌合作文案时
+description: 雕龙·生活 | DragonCraft Life -
+  ［何时使用］当需要将生活方式/价值观/美学变成有逻辑、有冲突、有认知、有价值的生活叙事时；当需要生活方式宣言、内容规划、视觉指南、品牌合作文案时
 author: ant (CEO 助理)
 created: 2026-04-30
 version: 1.1.0
 skill_type: 通用🟡
-allowed-tools: [Bash, Read, Write, Exec]
-tags: [dragoncraft, dragoncraft-life, narrative, storytelling]
-disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Exec
+tags:
+  - dragoncraft
+  - dragoncraft-life
+  - narrative
+  - storytelling
 ---
 
 # 雕龙·生活 (DragonCraft Life)

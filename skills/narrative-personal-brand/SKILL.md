@@ -1,13 +1,21 @@
 ---
 name: dragoncraft-brand
-description: 雕龙·品牌 | DragonCraft Brand - ［何时使用］当需要构建持续、一致、进化的个人叙事宇宙时；当需要新故事、历史引用标注、叙事宇宙地图、下期建议主题时
+description: 雕龙·品牌 | DragonCraft Brand -
+  ［何时使用］当需要构建持续、一致、进化的个人叙事宇宙时；当需要新故事、历史引用标注、叙事宇宙地图、下期建议主题时
 author: ant (CEO 助理)
 created: 2026-04-30
 version: 1.1.0
 skill_type: 通用🟡
-allowed-tools: [Bash, Read, Write, Exec]
-tags: [dragoncraft, dragoncraft-brand, narrative, storytelling]
-disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Exec
+tags:
+  - dragoncraft
+  - dragoncraft-brand
+  - narrative
+  - storytelling
 ---
 
 # 雕龙·品牌 (DragonCraft Brand)

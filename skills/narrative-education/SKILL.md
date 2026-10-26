@@ -1,13 +1,21 @@
 ---
 name: dragoncraft-teach
-description: 雕龙·传道 | DragonCraft Teach - ［何时使用］当需要将课程主题/学员痛点/认知误区变成有逻辑、有冲突、有认知、有价值的教育叙事时；当需要课程开场故事、培训口播稿、课程详情页文案时
+description: 雕龙·传道 | DragonCraft Teach -
+  ［何时使用］当需要将课程主题/学员痛点/认知误区变成有逻辑、有冲突、有认知、有价值的教育叙事时；当需要课程开场故事、培训口播稿、课程详情页文案时
 author: ant (CEO 助理)
 created: 2026-04-30
 version: 1.1.0
 skill_type: 通用🟡
-allowed-tools: [Bash, Read, Write, Exec]
-tags: [dragoncraft, dragoncraft-teach, narrative, storytelling]
-disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Exec
+tags:
+  - dragoncraft
+  - dragoncraft-teach
+  - narrative
+  - storytelling
 ---
 
 # 雕龙·传道 (DragonCraft Teach)

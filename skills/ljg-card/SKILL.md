@@ -12,7 +12,6 @@ description: "Content caster (铸). Transforms content into PNG visuals. Seven
   ljg-infograph."
 user_invocable: true
 version: 2.3.0
-disable-model-invocation: true
 ---
 
 # ljg-card: 铸

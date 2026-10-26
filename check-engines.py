@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 check-engines.py — 星躔引擎依赖体检
-对照《skills/paper-factory/references/C环节skill注册表.md》扫描本机技能目录，
+对照《skills/xingchan/references/C环节skill注册表.md》扫描本机技能目录，
 输出各工序默认引擎的就绪/缺失报表。新机器部署后先跑这个。
 
 用法: python check-engines.py [--skills-dir <路径>]
@@ -16,7 +16,7 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8")
 
 DEFAULT_SKILLS_DIR = Path.home() / ".workbuddy" / "skills"
-REGISTRY = Path(__file__).parent / "skills" / "paper-factory" / "references" / "C环节skill注册表.md"
+REGISTRY = Path(__file__).parent / "skills" / "xingchan" / "references" / "C环节skill注册表.md"
 STOP = {"full", "quick", "review", "mode", "modes", "line", "only", "json"}
 
 def registry_engines() -> dict:

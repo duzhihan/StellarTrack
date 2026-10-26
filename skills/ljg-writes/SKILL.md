@@ -3,11 +3,10 @@ name: ljg-writes
 description: >
   写作引擎·观点深挖文。Load when 用户要求写一篇 1000-1500 字的观点性批判文章——
   把一个观点像手术刀一样一层层剖开，剥到最底。触发词：剖开这个观点/写一篇深度的/
-  观点文章/批判性文章/层层剥开/深挖一个观点/深度长文/写篇文章讲讲这个道理。
-  非改写工具（改稿去AI味用 human-writing）；是从零成文的深度观点文引擎。
+  观点文章/批判性文章/层层剥开/深挖一个观点/深度长文/写篇文章讲讲这个道理。 非改写工具（改稿去AI味用
+  human-writing）；是从零成文的深度观点文引擎。
 user_invocable: true
 version: 6.3.0
-disable-model-invocation: true
 ---
 
 # 写作引擎

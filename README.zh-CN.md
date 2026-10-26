@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"/></a>
-  <img src="https://img.shields.io/badge/version-v12.6.14-blue.svg" alt="version"/>
+  <img src="https://img.shields.io/badge/version-v12.5.21-blue.svg" alt="version"/>
   <img src="https://img.shields.io/badge/Agent%20Skill-Claude%20Code%20%7C%20WorkBuddy-2f6feb.svg" alt="Agent Skill"/>
   <img src="https://img.shields.io/badge/lang-%E4%B8%AD%E6%96%87%20%7C%20English-informational.svg" alt="lang"/>
 </p>
@@ -132,3 +132,4 @@ cp -r StellarTrack/skills/xingchan ~/.workbuddy/skills/
 ## 许可
 
 MIT。可商用、可修改、可分发。逐项来源与授权说明见 [NOTICE.md](NOTICE.md)。
+- 部分二进制资产（图片、Office 文档、PDF、字体）因平台文件类型限制未随包发布——完整清单与“为何不影响主流程”见 `MISSING-ASSETS.md`。

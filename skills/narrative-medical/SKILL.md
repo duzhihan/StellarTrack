@@ -1,13 +1,21 @@
 ---
 name: dragoncraft-care
-description: 雕龙·仁心 | DragonCraft Care - ［何时使用］当需要将病情/治疗方案/风险收益变成有逻辑、有冲突、有认知、有价值的医疗叙事时；当需要知情同意书、医患沟通脚本、医疗科普、患者故事时
+description: 雕龙·仁心 | DragonCraft Care -
+  ［何时使用］当需要将病情/治疗方案/风险收益变成有逻辑、有冲突、有认知、有价值的医疗叙事时；当需要知情同意书、医患沟通脚本、医疗科普、患者故事时
 author: ant (CEO 助理)
 created: 2026-04-30
 version: 1.1.0
 skill_type: 通用🟡
-allowed-tools: [Bash, Read, Write, Exec]
-tags: [dragoncraft, dragoncraft-care, narrative, storytelling]
-disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Exec
+tags:
+  - dragoncraft
+  - dragoncraft-care
+  - narrative
+  - storytelling
 ---
 
 # 雕龙·仁心 (DragonCraft Care)

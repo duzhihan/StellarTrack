@@ -1,13 +1,21 @@
 ---
 name: dragoncraft-launch
-description: 雕龙·首发 | DragonCraft Launch - ［何时使用］当需要将产品卖点/发布节奏/目标用户变成有逻辑、有冲突、有认知、有价值的产品发布预热叙事时；当需要碎片地图、顿悟点设计、探索指引、奖励机制、执行排期表时
+description: 雕龙·首发 | DragonCraft Launch -
+  ［何时使用］当需要将产品卖点/发布节奏/目标用户变成有逻辑、有冲突、有认知、有价值的产品发布预热叙事时；当需要碎片地图、顿悟点设计、探索指引、奖励机制、执行排期表时
 author: ant (CEO 助理)
 created: 2026-04-30
 version: 1.1.0
 skill_type: 通用🟡
-allowed-tools: [Bash, Read, Write, Exec]
-tags: [dragoncraft, dragoncraft-launch, narrative, storytelling]
-disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Exec
+tags:
+  - dragoncraft
+  - dragoncraft-launch
+  - narrative
+  - storytelling
 ---
 
 # 雕龙·首发 (DragonCraft Launch)

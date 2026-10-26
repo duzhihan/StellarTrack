@@ -1,0 +1,12 @@
+# Data / personal
+data/*
+!data/insight-inbox.md
+!data/graft-log.md
+*.local.md
+private/
+
+# OS noise
+.DS_Store
+Thumbs.db
+GITHUB_INTRO.md
+preview.html
